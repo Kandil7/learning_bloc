@@ -1,0 +1,13 @@
+{
+  "@@locale": "en",
+  "hello_msg":"Hello there !",
+  "home": "Home",
+  "settings": "Settings",
+  "language": "Language",
+  "english": "English",
+  "arabic": "Arabic",
+  "change_language": "Change Language",
+  "internet_connected": "Internet Connected",
+  "internet_disconnected": "Internet Disconnected",
+  "theme_mode": "Theme Mode"
+}

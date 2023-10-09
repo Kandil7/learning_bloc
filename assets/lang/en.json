@@ -1,0 +1,9 @@
+{
+  "hello_msg":"Hello there !",
+  "home": "Home",
+  "settings": "Settings",
+    "language": "Language",
+    "english": "English",
+  "arabic": "Arabic",
+  "change_language": "Change Language",
+}

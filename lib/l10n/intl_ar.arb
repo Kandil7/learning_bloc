@@ -1,0 +1,13 @@
+{
+  "@@locale": "ar",
+  "arabic": " العربية",
+  "change_language": " تغيير اللغة",
+  "english": " الإنجليزية",
+  "hello_msg": " مرحباً",
+  "home": " الرئيسية ",
+  "language": " اللغة",
+  "settings": " الإعدادت",
+  "internet_disconnected": " لا يوجد اتصال بالإنترنت",
+  "internet_connected": " متصل بالإنترنت",
+  "theme_mode": " وضع الثيم"
+}
