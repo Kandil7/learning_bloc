@@ -4,6 +4,7 @@ import 'package:learning_bloc/bloc_learning/examples/counter_example/counter_exa
 import 'package:learning_bloc/bloc_learning/examples/dependency_injection_example/dependency_injection_screen.dart';
 import 'package:learning_bloc/bloc_learning/examples/factory_pattern_example/screens/factory_pattern_screen.dart';
 import 'package:learning_bloc/bloc_learning/examples/form_validation_example/form_validation_screen.dart';
+import 'package:learning_bloc/bloc_learning/examples/observer_pattern_example/screens/observer_pattern_screen.dart';
 import 'package:learning_bloc/bloc_learning/examples/repository_pattern_example/repository_pattern_screen.dart';
 import 'package:learning_bloc/bloc_learning/examples/state_management_example/state_management_screen.dart';
 import 'package:learning_bloc/bloc_learning/examples/stream_example/stream_example_screen.dart';
@@ -122,6 +123,17 @@ class BlocLearningDashboard extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => const FactoryPatternScreen()),
+              ),
+            ),
+            _buildCard(
+              title: 'Observer Pattern',
+              description:
+                  'Implementing the Observer Pattern for event handling',
+              icon: Icons.visibility,
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const ObserverPatternScreen()),
               ),
             ),
             const SizedBox(height: 16),
