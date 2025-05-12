@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learning_bloc/bloc_learning/examples/clean_architecture_example/clean_architecture_screen.dart';
 import 'package:learning_bloc/bloc_learning/examples/counter_example/counter_example_screen.dart';
+import 'package:learning_bloc/bloc_learning/examples/dependency_injection_example/dependency_injection_screen.dart';
 import 'package:learning_bloc/bloc_learning/examples/form_validation_example/form_validation_screen.dart';
 import 'package:learning_bloc/bloc_learning/examples/repository_pattern_example/repository_pattern_screen.dart';
 import 'package:learning_bloc/bloc_learning/examples/state_management_example/state_management_screen.dart';
@@ -100,6 +101,16 @@ class BlocLearningDashboard extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => const CleanArchitectureScreen()),
+              ),
+            ),
+            _buildCard(
+              title: 'Dependency Injection',
+              description: 'Using get_it for dependency injection with BLoC',
+              icon: Icons.settings_input_component,
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const DependencyInjectionScreen()),
               ),
             ),
             const SizedBox(height: 16),
