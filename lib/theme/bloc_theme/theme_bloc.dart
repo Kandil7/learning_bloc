@@ -1,7 +1,6 @@
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:learning_bloc/theme/bloc_theme/theme_event.dart';
-import 'package:learning_bloc/theme/bloc_theme/theme_event.dart';
 import 'package:learning_bloc/theme/bloc_theme/theme_state.dart';
 import 'package:learning_bloc/theme/theme_servicse/theme_cached.dart';
 

@@ -22,17 +22,19 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "arabic": MessageLookupByLibrary.simpleMessage(" العربية"),
-        "change_language": MessageLookupByLibrary.simpleMessage(" تغيير اللغة"),
-        "english": MessageLookupByLibrary.simpleMessage(" الإنجليزية"),
-        "hello_msg": MessageLookupByLibrary.simpleMessage(" مرحباً"),
-        "home": MessageLookupByLibrary.simpleMessage(" الرئيسية "),
-        "internet_connected":
-            MessageLookupByLibrary.simpleMessage(" متصل بالإنترنت"),
-        "internet_disconnected":
-            MessageLookupByLibrary.simpleMessage(" لا يوجد اتصال بالإنترنت"),
-        "language": MessageLookupByLibrary.simpleMessage(" اللغة"),
-        "settings": MessageLookupByLibrary.simpleMessage(" الإعدادت"),
-        "theme_mode": MessageLookupByLibrary.simpleMessage(" وضع الثيم")
-      };
+    "arabic": MessageLookupByLibrary.simpleMessage(" العربية"),
+    "change_language": MessageLookupByLibrary.simpleMessage(" تغيير اللغة"),
+    "english": MessageLookupByLibrary.simpleMessage(" الإنجليزية"),
+    "hello_msg": MessageLookupByLibrary.simpleMessage(" مرحباً"),
+    "home": MessageLookupByLibrary.simpleMessage(" الرئيسية "),
+    "internet_connected": MessageLookupByLibrary.simpleMessage(
+      " متصل بالإنترنت",
+    ),
+    "internet_disconnected": MessageLookupByLibrary.simpleMessage(
+      " لا يوجد اتصال بالإنترنت",
+    ),
+    "language": MessageLookupByLibrary.simpleMessage(" اللغة"),
+    "settings": MessageLookupByLibrary.simpleMessage(" الإعدادت"),
+    "theme_mode": MessageLookupByLibrary.simpleMessage(" وضع الثيم"),
+  };
 }

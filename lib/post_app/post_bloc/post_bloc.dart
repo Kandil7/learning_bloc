@@ -10,7 +10,7 @@ import '../services/post_api.dart';
 
 class PostBloc extends Bloc<PostEvent, PostState> {
 
-  PostBloc() : super(PostState()) {
+  PostBloc() : super(const PostState()) {
     on<PostEvent>((event, emit) async {
       if(event is GetAllPostsEvent) {
         if(state.hasReachedMax) return;

@@ -22,18 +22,19 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
-        "change_language":
-            MessageLookupByLibrary.simpleMessage("Change Language"),
-        "english": MessageLookupByLibrary.simpleMessage("English"),
-        "hello_msg": MessageLookupByLibrary.simpleMessage("Hello there !"),
-        "home": MessageLookupByLibrary.simpleMessage("Home"),
-        "internet_connected":
-            MessageLookupByLibrary.simpleMessage("Internet Connected"),
-        "internet_disconnected":
-            MessageLookupByLibrary.simpleMessage("Internet Disconnected"),
-        "language": MessageLookupByLibrary.simpleMessage("Language"),
-        "settings": MessageLookupByLibrary.simpleMessage("Settings"),
-        "theme_mode": MessageLookupByLibrary.simpleMessage("Theme Mode")
-      };
+    "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
+    "change_language": MessageLookupByLibrary.simpleMessage("Change Language"),
+    "english": MessageLookupByLibrary.simpleMessage("English"),
+    "hello_msg": MessageLookupByLibrary.simpleMessage("Hello there !"),
+    "home": MessageLookupByLibrary.simpleMessage("Home"),
+    "internet_connected": MessageLookupByLibrary.simpleMessage(
+      "Internet Connected",
+    ),
+    "internet_disconnected": MessageLookupByLibrary.simpleMessage(
+      "Internet Disconnected",
+    ),
+    "language": MessageLookupByLibrary.simpleMessage("Language"),
+    "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+    "theme_mode": MessageLookupByLibrary.simpleMessage("Theme Mode"),
+  };
 }

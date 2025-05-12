@@ -21,13 +21,13 @@ class HomePage extends StatelessWidget {
               onPressed: () => Navigator.of(context).push(
                   MaterialPageRoute(builder: (ctx) => const SettingsPage())),
               icon: const Icon(Icons.language)),
-          SizedBox(
+          const SizedBox(
             width: 10,
           ),
           IconButton(
               onPressed: () => Navigator.of(context).push(
                   MaterialPageRoute(builder: (ctx) => const SettingsTheme())),
-              icon:  Icon(Icons.dark_mode))
+              icon:  const Icon(Icons.dark_mode))
         ],
       ),
       drawer: const Drawer(),
@@ -37,18 +37,18 @@ class HomePage extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              CounterBody(),
+              const CounterBody(),
               Text(
                 S.of(context).hello_msg,
                 style: const TextStyle(fontSize: 25),
                 textAlign: TextAlign.center,
               ),
-              ConnectivtyScreen()
+              const ConnectivtyScreen()
             ],
           ),
         ),
       ),
-      floatingActionButton: CounterButton(),
+      floatingActionButton: const CounterButton(),
     );
   }
 }

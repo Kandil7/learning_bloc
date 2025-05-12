@@ -15,8 +15,8 @@ class ConnectivtyScreen extends StatelessWidget {
 
       },
       builder: (context,state){
-        if(state is InternetChanged)
-        return  Center(
+        if(state is InternetChanged) {
+          return  Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -32,10 +32,11 @@ class ConnectivtyScreen extends StatelessWidget {
             ),
 
         );
-        else
-          return  Center(
+        } else {
+          return  const Center(
             child: CircularProgressIndicator(),
           );
+        }
       },
 
     );

@@ -40,7 +40,7 @@ class Task {
 
 // BLoC
 class TaskBloc extends Bloc<TaskEvent, TaskState> {
-  List<Task> _tasks = [];
+  final List<Task> _tasks = [];
 
   TaskBloc() : super(TaskInitial()) {
     on<TaskEvent>((event, emit) async {

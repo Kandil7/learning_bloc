@@ -12,9 +12,9 @@ class CounterScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Counter'),
       ),
-      body: CounterBody(),
+      body: const CounterBody(),
       // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton:CounterButton(),
+      floatingActionButton:const CounterButton(),
     );
   }
 }

@@ -21,7 +21,7 @@ class CounterButton extends StatelessWidget {
           },
           child: const Icon(Icons.add),
         ),
-        SizedBox(width: 20,),
+        const SizedBox(width: 20,),
         FloatingActionButton(
           heroTag: " sub ",
           onPressed: () {

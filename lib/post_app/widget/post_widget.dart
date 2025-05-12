@@ -9,8 +9,8 @@ class PostWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       leading: CircleAvatar(
-        child: Text(post.id.toString()),
         backgroundColor: Colors.blue,
+        child: Text(post.id.toString()),
       ),
       title: Text(post.title!),
       subtitle: Text(post.body!),

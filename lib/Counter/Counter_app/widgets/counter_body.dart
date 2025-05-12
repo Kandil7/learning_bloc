@@ -12,7 +12,7 @@ class CounterBody extends StatelessWidget {
     return BlocBuilder<CounterBloc, CounterState>(
       builder: (context, state) {
         if(state is CounterInitial){
-          return  Center(
+          return  const Center(
             child: Text(
               '0',
               style: TextStyle(fontSize: 24),
@@ -23,7 +23,7 @@ class CounterBody extends StatelessWidget {
           return  Center(
             child: Text(
               state.counter.toString(),
-              style: TextStyle(fontSize: 24),
+              style: const TextStyle(fontSize: 24),
             ),
           );
         }
