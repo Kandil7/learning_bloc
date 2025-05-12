@@ -7,7 +7,7 @@ class LoadingPosts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Center(
-      child: LoadingAnimationWidget.prograssiveDots(
+      child: LoadingAnimationWidget.progressiveDots(
         color: Colors.blue,
         size: 50,
       ),

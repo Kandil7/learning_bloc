@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:learning_bloc/bloc_learning/bloc_learning_dashboard.dart';
 import 'package:learning_bloc/post_app/post_bloc/post_bloc.dart';
 import 'package:learning_bloc/post_app/post_bloc/post_event.dart';
 import 'package:learning_bloc/post_app/screens/post_screen.dart';
@@ -45,7 +46,7 @@ class MyApp extends StatelessWidget {
 
               debugShowCheckedModeBanner: false,
 
-              home: PostScreen(),
+              home: BlocLearningDashboard(),
             ),
 
 
