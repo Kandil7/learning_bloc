@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:learning_bloc/bloc_learning/examples/clean_architecture_example/clean_architecture_screen.dart';
 import 'package:learning_bloc/bloc_learning/examples/counter_example/counter_example_screen.dart';
 import 'package:learning_bloc/bloc_learning/examples/dependency_injection_example/dependency_injection_screen.dart';
+import 'package:learning_bloc/bloc_learning/examples/factory_pattern_example/screens/factory_pattern_screen.dart';
 import 'package:learning_bloc/bloc_learning/examples/form_validation_example/form_validation_screen.dart';
 import 'package:learning_bloc/bloc_learning/examples/repository_pattern_example/repository_pattern_screen.dart';
 import 'package:learning_bloc/bloc_learning/examples/state_management_example/state_management_screen.dart';
@@ -111,6 +112,16 @@ class BlocLearningDashboard extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => const DependencyInjectionScreen()),
+              ),
+            ),
+            _buildCard(
+              title: 'Factory Pattern',
+              description: 'Creating UI components using Factory Pattern',
+              icon: Icons.widgets,
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const FactoryPatternScreen()),
               ),
             ),
             const SizedBox(height: 16),
