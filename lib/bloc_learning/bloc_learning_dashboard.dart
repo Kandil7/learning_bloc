@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learning_bloc/bloc_learning/examples/clean_architecture_example/clean_architecture_screen.dart';
 import 'package:learning_bloc/bloc_learning/examples/counter_example/counter_example_screen.dart';
 import 'package:learning_bloc/bloc_learning/examples/form_validation_example/form_validation_screen.dart';
 import 'package:learning_bloc/bloc_learning/examples/repository_pattern_example/repository_pattern_screen.dart';
@@ -27,7 +28,8 @@ class BlocLearningDashboard extends StatelessWidget {
             _buildSectionTitle('BLoC Theory'),
             _buildCard(
               title: 'BLoC Pattern Fundamentals',
-              description: 'Learn the core concepts of BLoC pattern and its architecture',
+              description:
+                  'Learn the core concepts of BLoC pattern and its architecture',
               icon: Icons.book,
               onTap: () => Navigator.push(
                 context,
@@ -35,7 +37,6 @@ class BlocLearningDashboard extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
-            
             _buildSectionTitle('Basic Examples'),
             _buildCard(
               title: 'Counter Example',
@@ -43,7 +44,8 @@ class BlocLearningDashboard extends StatelessWidget {
               icon: Icons.add_circle,
               onTap: () => Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const CounterExampleScreen()),
+                MaterialPageRoute(
+                    builder: (context) => const CounterExampleScreen()),
               ),
             ),
             _buildCard(
@@ -52,10 +54,10 @@ class BlocLearningDashboard extends StatelessWidget {
               icon: Icons.sync_alt,
               onTap: () => Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const StateManagementScreen()),
+                MaterialPageRoute(
+                    builder: (context) => const StateManagementScreen()),
               ),
             ),
-            
             const SizedBox(height: 16),
             _buildSectionTitle('Intermediate Examples'),
             _buildCard(
@@ -64,7 +66,8 @@ class BlocLearningDashboard extends StatelessWidget {
               icon: Icons.check_circle,
               onTap: () => Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const FormValidationScreen()),
+                MaterialPageRoute(
+                    builder: (context) => const FormValidationScreen()),
               ),
             ),
             _buildCard(
@@ -73,10 +76,10 @@ class BlocLearningDashboard extends StatelessWidget {
               icon: Icons.stream,
               onTap: () => Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const StreamExampleScreen()),
+                MaterialPageRoute(
+                    builder: (context) => const StreamExampleScreen()),
               ),
             ),
-            
             const SizedBox(height: 16),
             _buildSectionTitle('Advanced Examples'),
             _buildCard(
@@ -85,10 +88,20 @@ class BlocLearningDashboard extends StatelessWidget {
               icon: Icons.storage,
               onTap: () => Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const RepositoryPatternScreen()),
+                MaterialPageRoute(
+                    builder: (context) => const RepositoryPatternScreen()),
               ),
             ),
-            
+            _buildCard(
+              title: 'Clean Architecture',
+              description: 'Implementing Clean Architecture with BLoC',
+              icon: Icons.architecture,
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const CleanArchitectureScreen()),
+              ),
+            ),
             const SizedBox(height: 16),
             _buildSectionTitle('Real-World Examples'),
             _buildCard(
@@ -115,7 +128,8 @@ class BlocLearningDashboard extends StatelessWidget {
               icon: Icons.wifi,
               onTap: () => Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const ConnectivtyScreen()),
+                MaterialPageRoute(
+                    builder: (context) => const ConnectivtyScreen()),
               ),
             ),
           ],
