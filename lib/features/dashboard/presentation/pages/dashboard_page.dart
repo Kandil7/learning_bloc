@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mastery/features/1_fundamentals/counter_app/presentation/pages/counter_page.dart';
 import 'package:flutter_mastery/features/2_state_management/bloc_basics/presentation/pages/bloc_basics_page.dart';
+import 'package:flutter_mastery/features/2_state_management/form_validation/presentation/pages/form_validation_page.dart';
 import 'package:flutter_mastery/features/3_architecture/clean_architecture/presentation/pages/clean_architecture_page.dart';
 import 'package:flutter_mastery/features/4_design_patterns/factory_pattern/presentation/pages/factory_pattern_page.dart';
 import 'package:flutter_mastery/features/5_real_world/connectivity_app/presentation/pages/connectivity_page.dart';
@@ -38,7 +39,6 @@ class DashboardPage extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => const CounterPage()),
               ),
             ),
-            
             const SizedBox(height: 16),
             _buildSectionTitle(context, '2. State Management'),
             _buildFeatureCard(
@@ -51,33 +51,45 @@ class DashboardPage extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => const BlocBasicsPage()),
               ),
             ),
-            
+            _buildFeatureCard(
+              context,
+              title: 'Form Validation',
+              description: 'Implement form validation using BLoC pattern',
+              icon: Icons.check_circle,
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const FormValidationPage()),
+              ),
+            ),
             const SizedBox(height: 16),
             _buildSectionTitle(context, '3. Architecture'),
             _buildFeatureCard(
               context,
               title: 'Clean Architecture',
-              description: 'Learn how to implement Clean Architecture in Flutter',
+              description:
+                  'Learn how to implement Clean Architecture in Flutter',
               icon: Icons.architecture,
               onTap: () => Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const CleanArchitecturePage()),
+                MaterialPageRoute(
+                    builder: (context) => const CleanArchitecturePage()),
               ),
             ),
-            
             const SizedBox(height: 16),
             _buildSectionTitle(context, '4. Design Patterns'),
             _buildFeatureCard(
               context,
               title: 'Factory Pattern',
-              description: 'Learn how to implement the Factory Pattern in Flutter',
+              description:
+                  'Learn how to implement the Factory Pattern in Flutter',
               icon: Icons.widgets,
               onTap: () => Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const FactoryPatternPage()),
+                MaterialPageRoute(
+                    builder: (context) => const FactoryPatternPage()),
               ),
             ),
-            
             const SizedBox(height: 16),
             _buildSectionTitle(context, '5. Real-World Applications'),
             _buildFeatureCard(
@@ -107,7 +119,8 @@ class DashboardPage extends StatelessWidget {
               icon: Icons.wifi,
               onTap: () => Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const ConnectivityPage()),
+                MaterialPageRoute(
+                    builder: (context) => const ConnectivityPage()),
               ),
             ),
           ],

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_mastery/core/config/app_config.dart';
+import 'package:flutter_mastery/core/di/injection_container.dart' as di;
 import 'package:flutter_mastery/core/theme/app_theme.dart';
 import 'package:flutter_mastery/features/dashboard/presentation/pages/dashboard_page.dart';
 import 'package:flutter_mastery/generated/l10n.dart';
@@ -25,6 +26,9 @@ void main() async {
 
   // Initialize app configuration
   await AppConfig.initialize();
+
+  // Initialize dependency injection
+  await di.init();
 
   // Set up BLoC observer for debugging and monitoring BLoC events
   Bloc.observer = const AppBlocObserver();
