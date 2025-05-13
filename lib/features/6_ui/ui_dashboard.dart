@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mastery/features/6_ui/1_basic_components/presentation/pages/basic_components_page.dart';
+import 'package:flutter_mastery/features/6_ui/2_material_design/presentation/pages/material_design_page.dart';
 
 /// Dashboard for the UI section
 ///
@@ -32,8 +34,12 @@ class UIDashboard extends StatelessWidget {
               description: 'Learn about fundamental Flutter widgets and layouts',
               icon: Icons.widgets,
               onTap: () {
-                // Will be implemented in future commits
-                _showComingSoonDialog(context, 'Basic UI Components');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const BasicComponentsPage(),
+                  ),
+                );
               },
             ),
             _buildTopicCard(
@@ -42,8 +48,12 @@ class UIDashboard extends StatelessWidget {
               description: 'Implement Google\'s Material Design in Flutter',
               icon: Icons.design_services,
               onTap: () {
-                // Will be implemented in future commits
-                _showComingSoonDialog(context, 'Material Design');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const MaterialDesignPage(),
+                  ),
+                );
               },
             ),
             _buildTopicCard(
