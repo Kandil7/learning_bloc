@@ -6,7 +6,7 @@ enum EmailValidationError {
   empty,
 
   /// Email is invalid
-  invalid
+  invalid,
 }
 
 /// Password Input Validation Error
@@ -15,20 +15,19 @@ enum PasswordValidationError {
   empty,
 
   /// Password is too short
-  tooShort
+  tooShort,
 }
 
 /// Email Input Form Field
 class Email extends FormzInput<String, EmailValidationError> {
   /// Create a validated email input
-  const Email.pure() : super.pure('');
+  const Email.pure([super.value = '']) : super.pure();
 
   /// Create a dirty (modified) email input
-  const Email.dirty([String value = '']) : super.dirty(value);
+  const Email.dirty([super.value = '']) : super.dirty();
 
-  static final _emailRegExp = RegExp(
-    r'^[a-zA-Z0-9.!#$%&\'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$',
-  );
+  // Simple email regex pattern
+  static final _emailRegExp = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
 
   @override
   EmailValidationError? validator(String value) {
@@ -40,10 +39,10 @@ class Email extends FormzInput<String, EmailValidationError> {
 /// Password Input Form Field
 class Password extends FormzInput<String, PasswordValidationError> {
   /// Create a validated password input
-  const Password.pure() : super.pure('');
+  const Password.pure([super.value = '']) : super.pure();
 
   /// Create a dirty (modified) password input
-  const Password.dirty([String value = '']) : super.dirty(value);
+  const Password.dirty([super.value = '']) : super.dirty();
 
   static const minLength = 8;
 
