@@ -3,7 +3,7 @@ import 'package:flutter_mastery/features/5_real_world/posts_app/data/model/post_
 
 class PostWidget extends StatelessWidget {
   final PostModel post;
-  const PostWidget({Key? key, required this.post}) : super(key: key);
+  const PostWidget({super.key, required this.post});
 
   @override
   Widget build(BuildContext context) {

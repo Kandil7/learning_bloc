@@ -11,15 +11,12 @@ import '../widgets/todo_item.dart';
 /// This page displays a list of todos and a form for adding new todos.
 class TodoListPage extends StatelessWidget {
   /// Create a new todo list page
-  const TodoListPage({Key? key}) : super(key: key);
-  
+  const TodoListPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Todo List'),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: const Text('Todo List'), centerTitle: true),
       body: BlocBuilder<TodoBloc, TodoState>(
         builder: (context, state) {
           if (state is TodoInitial) {
@@ -44,20 +41,17 @@ class TodoListPage extends StatelessWidget {
       ),
     );
   }
-  
+
   /// Build the todo list
   Widget _buildTodoList(BuildContext context, TodosLoaded state) {
     final todos = state.todos;
-    
+
     if (todos.isEmpty) {
       return const Center(
-        child: Text(
-          'No todos yet. Add one!',
-          style: TextStyle(fontSize: 18),
-        ),
+        child: Text('No todos yet. Add one!', style: TextStyle(fontSize: 18)),
       );
     }
-    
+
     return ListView.builder(
       itemCount: todos.length,
       itemBuilder: (context, index) {
@@ -66,7 +60,7 @@ class TodoListPage extends StatelessWidget {
       },
     );
   }
-  
+
   /// Show a dialog to add a new todo
   void _showAddTodoDialog(BuildContext context) {
     showDialog(
@@ -74,9 +68,7 @@ class TodoListPage extends StatelessWidget {
       builder: (context) {
         return AlertDialog(
           title: const Text('Add Todo'),
-          content: const SingleChildScrollView(
-            child: AddTodoForm(),
-          ),
+          content: const SingleChildScrollView(child: AddTodoForm()),
           actions: [
             TextButton(
               onPressed: () {

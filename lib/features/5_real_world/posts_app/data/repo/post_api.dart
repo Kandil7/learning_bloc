@@ -13,12 +13,13 @@ class PostsApi implements PostApi {
     final dio = Dio();
     try {
       const String url = "https://jsonplaceholder.typicode.com/posts";
-      var response =
-          await dio.get('$url?_start=${start ?? 10}&_limit=${limit ?? 10}');
+      var response = await dio.get('$url?_start=$start&_limit=$limit');
 
-      posts.addAll(response.data
-          .map<PostModel>((jsonPost) => PostModel.fromJson(jsonPost))
-          .toList());
+      posts.addAll(
+        response.data
+            .map<PostModel>((jsonPost) => PostModel.fromJson(jsonPost))
+            .toList(),
+      );
       return posts;
     } catch (e) {
       if (kDebugMode) {

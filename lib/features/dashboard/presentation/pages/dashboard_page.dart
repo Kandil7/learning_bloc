@@ -5,6 +5,7 @@ import 'package:flutter_mastery/features/2_state_management/bloc_basics/presenta
 import 'package:flutter_mastery/features/2_state_management/form_validation/presentation/pages/form_validation_page.dart';
 import 'package:flutter_mastery/features/3_architecture/clean_architecture/presentation/pages/clean_architecture_page.dart';
 import 'package:flutter_mastery/features/4_design_patterns/factory_pattern/presentation/pages/factory_pattern_page.dart';
+import 'package:flutter_mastery/features/4_design_patterns/observer_pattern/presentation/pages/observer_pattern_page.dart';
 import 'package:flutter_mastery/features/5_real_world/connectivity_app/presentation/pages/connectivity_page.dart';
 import 'package:flutter_mastery/features/5_real_world/posts_app/presentation/pages/posts_page.dart';
 import 'package:flutter_mastery/features/5_real_world/todos_app/presentation/pages/todos_page.dart';
@@ -15,15 +16,12 @@ import 'package:flutter_mastery/features/dashboard/presentation/widgets/feature_
 /// This page serves as the main navigation hub for the application.
 /// It displays cards for each learning module, organized by difficulty level.
 class DashboardPage extends StatelessWidget {
-  const DashboardPage({Key? key}) : super(key: key);
+  const DashboardPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Flutter Mastery'),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: const Text('Flutter Mastery'), centerTitle: true),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -34,11 +32,13 @@ class DashboardPage extends StatelessWidget {
               title: 'BLoC Learning Journey',
               description: 'Step-by-step guide to mastering BLoC pattern',
               icon: Icons.school,
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const BlocJourneyDashboard()),
-              ),
+              onTap:
+                  () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const BlocJourneyDashboard(),
+                    ),
+                  ),
             ),
             const SizedBox(height: 16),
             _buildSectionTitle(context, '1. Fundamentals'),
@@ -47,10 +47,13 @@ class DashboardPage extends StatelessWidget {
               title: 'Counter App',
               description: 'Learn the basics of Flutter and state management',
               icon: Icons.add_circle,
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const CounterPage()),
-              ),
+              onTap:
+                  () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CounterPage(),
+                    ),
+                  ),
             ),
             const SizedBox(height: 16),
             _buildSectionTitle(context, '2. State Management'),
@@ -59,21 +62,26 @@ class DashboardPage extends StatelessWidget {
               title: 'BLoC Basics',
               description: 'Introduction to the BLoC pattern',
               icon: Icons.sync_alt,
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const BlocBasicsPage()),
-              ),
+              onTap:
+                  () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const BlocBasicsPage(),
+                    ),
+                  ),
             ),
             _buildFeatureCard(
               context,
               title: 'Form Validation',
               description: 'Implement form validation using BLoC pattern',
               icon: Icons.check_circle,
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const FormValidationPage()),
-              ),
+              onTap:
+                  () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const FormValidationPage(),
+                    ),
+                  ),
             ),
             const SizedBox(height: 16),
             _buildSectionTitle(context, '3. Architecture'),
@@ -83,11 +91,13 @@ class DashboardPage extends StatelessWidget {
               description:
                   'Learn how to implement Clean Architecture in Flutter',
               icon: Icons.architecture,
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const CleanArchitecturePage()),
-              ),
+              onTap:
+                  () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CleanArchitecturePage(),
+                    ),
+                  ),
             ),
             const SizedBox(height: 16),
             _buildSectionTitle(context, '4. Design Patterns'),
@@ -97,11 +107,27 @@ class DashboardPage extends StatelessWidget {
               description:
                   'Learn how to implement the Factory Pattern in Flutter',
               icon: Icons.widgets,
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const FactoryPatternPage()),
-              ),
+              onTap:
+                  () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const FactoryPatternPage(),
+                    ),
+                  ),
+            ),
+            _buildFeatureCard(
+              context,
+              title: 'Observer Pattern',
+              description:
+                  'Learn how to implement the Observer Pattern in Flutter',
+              icon: Icons.visibility,
+              onTap:
+                  () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ObserverPatternPage(),
+                    ),
+                  ),
             ),
             const SizedBox(height: 16),
             _buildSectionTitle(context, '5. Real-World Applications'),
@@ -110,31 +136,35 @@ class DashboardPage extends StatelessWidget {
               title: 'Posts App',
               description: 'Fetch and display posts from a REST API',
               icon: Icons.article,
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const PostsPage()),
-              ),
+              onTap:
+                  () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const PostsPage()),
+                  ),
             ),
             _buildFeatureCard(
               context,
               title: 'Todos App',
               description: 'Manage a todo list with BLoC pattern',
               icon: Icons.check_box,
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const TodosPage()),
-              ),
+              onTap:
+                  () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const TodosPage()),
+                  ),
             ),
             _buildFeatureCard(
               context,
               title: 'Connectivity App',
               description: 'Monitor network connectivity with BLoC',
               icon: Icons.wifi,
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const ConnectivityPage()),
-              ),
+              onTap:
+                  () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ConnectivityPage(),
+                    ),
+                  ),
             ),
           ],
         ),
@@ -146,10 +176,7 @@ class DashboardPage extends StatelessWidget {
   Widget _buildSectionTitle(BuildContext context, String title) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0),
-      child: Text(
-        title,
-        style: Theme.of(context).textTheme.headlineMedium,
-      ),
+      child: Text(title, style: Theme.of(context).textTheme.headlineMedium),
     );
   }
 

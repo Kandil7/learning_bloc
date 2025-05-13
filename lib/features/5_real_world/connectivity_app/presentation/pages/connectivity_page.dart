@@ -7,7 +7,7 @@ import '../widgets/connectivity_status.dart';
 /// Page for demonstrating internet connectivity monitoring
 class ConnectivityPage extends StatelessWidget {
   /// Create a new connectivity page
-  const ConnectivityPage({Key? key}) : super(key: key);
+  const ConnectivityPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -54,10 +54,22 @@ class ConnectivityPage extends StatelessWidget {
             style: TextStyle(fontSize: 14),
           ),
           SizedBox(height: 4),
-          Text('• Uses connectivity_plus package to monitor network status', style: TextStyle(fontSize: 14)),
-          Text('• Implements a Cubit to manage connectivity state', style: TextStyle(fontSize: 14)),
-          Text('• Listens to connectivity changes with StreamSubscription', style: TextStyle(fontSize: 14)),
-          Text('• Updates UI based on connection status', style: TextStyle(fontSize: 14)),
+          Text(
+            '• Uses connectivity_plus package to monitor network status',
+            style: TextStyle(fontSize: 14),
+          ),
+          Text(
+            '• Implements a Cubit to manage connectivity state',
+            style: TextStyle(fontSize: 14),
+          ),
+          Text(
+            '• Listens to connectivity changes with StreamSubscription',
+            style: TextStyle(fontSize: 14),
+          ),
+          Text(
+            '• Updates UI based on connection status',
+            style: TextStyle(fontSize: 14),
+          ),
         ],
       ),
     );

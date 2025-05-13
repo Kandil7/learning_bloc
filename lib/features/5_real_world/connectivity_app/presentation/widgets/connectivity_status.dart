@@ -7,7 +7,7 @@ import '../bloc/internet_state.dart';
 /// Widget to display the current connectivity status
 class ConnectivityStatus extends StatelessWidget {
   /// Create a new connectivity status widget
-  const ConnectivityStatus({Key? key}) : super(key: key);
+  const ConnectivityStatus({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -39,9 +39,9 @@ class ConnectivityStatus extends StatelessWidget {
         Text(
           'Connected',
           style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                color: Colors.green,
-                fontWeight: FontWeight.bold,
-              ),
+            color: Colors.green,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         const SizedBox(height: 8),
         Text(
@@ -62,18 +62,14 @@ class ConnectivityStatus extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Icon(
-          Icons.signal_wifi_off,
-          size: 100,
-          color: Colors.red,
-        ),
+        const Icon(Icons.signal_wifi_off, size: 100, color: Colors.red),
         const SizedBox(height: 24),
         Text(
           'Disconnected',
           style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                color: Colors.red,
-                fontWeight: FontWeight.bold,
-              ),
+            color: Colors.red,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         const SizedBox(height: 24),
         const Text(

@@ -1,10 +1,16 @@
+/// Asset Manager
+///
+/// This class manages the paths to various assets used in the application.
 class AssetManager {
+  /// Arabic language file
+  static const ar = 'assets/lang/ar.json';
 
-  static const Ar = 'assets/lang/ar.json';
+  /// English language file
+  static const en = 'assets/lang/en.json';
 
-  static const En = 'assets/lang/en.json';
+  /// Arabic (Egypt) language file
+  static const arEg = 'assets/lang/ar_EG.json';
 
-  static const ArEg = 'assets/lang/ar_EG.json';
-
-  static const EnUs = 'assets/lang/en_US.json';
+  /// English (US) language file
+  static const enUs = 'assets/lang/en_US.json';
 }

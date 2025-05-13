@@ -11,15 +11,12 @@ import 'post_screen.dart';
 /// using the BLoC pattern and Clean Architecture.
 class PostsPage extends StatelessWidget {
   /// Create a new posts page
-  const PostsPage({Key? key}) : super(key: key);
+  const PostsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Posts App'),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: const Text('Posts App'), centerTitle: true),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -33,20 +30,19 @@ class PostsPage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => BlocProvider(
-                        create: (context) =>
-                            PostBloc()..add(const FetchPostsEvent()),
-                        child: const PostScreen(),
-                      ),
+                      builder:
+                          (context) => BlocProvider(
+                            create:
+                                (context) =>
+                                    PostBloc()..add(const FetchPostsEvent()),
+                            child: const PostScreen(),
+                          ),
                     ),
                   );
                 },
                 child: const Padding(
                   padding: EdgeInsets.all(12.0),
-                  child: Text(
-                    'Open Posts App',
-                    style: TextStyle(fontSize: 16),
-                  ),
+                  child: Text('Open Posts App', style: TextStyle(fontSize: 16)),
                 ),
               ),
             ),
@@ -58,19 +54,16 @@ class PostsPage extends StatelessWidget {
 
   /// Build the explanation widget
   Widget _buildExplanation() {
-    return Card(
+    return const Card(
       elevation: 4,
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
+          children: [
             Text(
               'Posts App Example',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 8),
             Text(
@@ -83,15 +76,16 @@ class PostsPage extends StatelessWidget {
             Text('• Handles loading, success, and error states'),
             Text('• Implements pagination with infinite scrolling'),
             SizedBox(height: 8),
+            Text('The app is structured following Clean Architecture:'),
             Text(
-              'The app is structured following Clean Architecture:',
+              '• Domain Layer: Post entity, PostRepository interface, GetPosts use case',
             ),
             Text(
-                '• Domain Layer: Post entity, PostRepository interface, GetPosts use case'),
+              '• Data Layer: PostModel, PostRemoteDataSource, PostRepositoryImpl',
+            ),
             Text(
-                '• Data Layer: PostModel, PostRemoteDataSource, PostRepositoryImpl'),
-            Text(
-                '• Presentation Layer: PostBloc, PostEvent, PostState, UI components'),
+              '• Presentation Layer: PostBloc, PostEvent, PostState, UI components',
+            ),
           ],
         ),
       ),

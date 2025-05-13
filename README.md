@@ -29,8 +29,8 @@ The project is organized into a progressive learning path:
 - Separation of concerns
 
 ### 4. Design Patterns
-- Factory pattern
-- Observer pattern
+- Factory pattern: Creating objects without specifying their concrete classes
+- Observer pattern: One-to-many dependency between objects with automatic notifications
 - Singleton pattern
 - Adapter pattern
 

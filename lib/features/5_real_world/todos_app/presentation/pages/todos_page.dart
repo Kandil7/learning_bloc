@@ -18,15 +18,12 @@ import 'todo_list_page.dart';
 /// using the BLoC pattern and Clean Architecture.
 class TodosPage extends StatelessWidget {
   /// Create a new todos page
-  const TodosPage({Key? key}) : super(key: key);
-  
+  const TodosPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Todos App'),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: const Text('Todos App'), centerTitle: true),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -38,25 +35,23 @@ class TodosPage extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () async {
                   final todoBloc = await _createTodoBloc();
-                  
+
                   if (context.mounted) {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => BlocProvider(
-                          create: (context) => todoBloc,
-                          child: const TodoListPage(),
-                        ),
+                        builder:
+                            (context) => BlocProvider(
+                              create: (context) => todoBloc,
+                              child: const TodoListPage(),
+                            ),
                       ),
                     );
                   }
                 },
                 child: const Padding(
                   padding: EdgeInsets.all(12.0),
-                  child: Text(
-                    'Open Todos App',
-                    style: TextStyle(fontSize: 16),
-                  ),
+                  child: Text('Open Todos App', style: TextStyle(fontSize: 16)),
                 ),
               ),
             ),
@@ -65,22 +60,19 @@ class TodosPage extends StatelessWidget {
       ),
     );
   }
-  
+
   /// Build the explanation widget
   Widget _buildExplanation() {
-    return Card(
+    return const Card(
       elevation: 4,
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
+          children: [
             Text(
               'Todos App Example',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 8),
             Text(
@@ -92,35 +84,37 @@ class TodosPage extends StatelessWidget {
             Text('• Implements BLoC for state management'),
             Text('• Follows Clean Architecture principles'),
             SizedBox(height: 8),
+            Text('The app is structured following Clean Architecture:'),
             Text(
-              'The app is structured following Clean Architecture:',
+              '• Domain Layer: Todo entity, TodoRepository interface, use cases',
             ),
-            Text('• Domain Layer: Todo entity, TodoRepository interface, use cases'),
-            Text('• Data Layer: TodoModel, TodoLocalDataSource, TodoRepositoryImpl'),
-            Text('• Presentation Layer: TodoBloc, TodoEvent, TodoState, UI components'),
+            Text(
+              '• Data Layer: TodoModel, TodoLocalDataSource, TodoRepositoryImpl',
+            ),
+            Text(
+              '• Presentation Layer: TodoBloc, TodoEvent, TodoState, UI components',
+            ),
           ],
         ),
       ),
     );
   }
-  
+
   /// Create a todo BLoC with all dependencies
   Future<TodoBloc> _createTodoBloc() async {
     final sharedPreferences = await SharedPreferences.getInstance();
-    
+
     final localDataSource = TodoLocalDataSourceImpl(
       sharedPreferences: sharedPreferences,
     );
-    
-    final repository = TodoRepositoryImpl(
-      localDataSource: localDataSource,
-    );
-    
+
+    final repository = TodoRepositoryImpl(localDataSource: localDataSource);
+
     final getTodos = GetTodos(repository: repository);
     final saveTodo = SaveTodo(repository: repository);
     final deleteTodo = DeleteTodo(repository: repository);
     final updateTodo = UpdateTodo(repository: repository);
-    
+
     return TodoBloc(
       getTodos: getTodos,
       saveTodo: saveTodo,
