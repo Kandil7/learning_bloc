@@ -27,141 +27,146 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
   /// Handle the load tasks event
   void _onLoadTasks(LoadTasks event, Emitter<TaskState> emit) async {
     emit(state.loading());
-    
+
     try {
       final tasks = await taskRepository.getTasks();
       emit(state.loaded(tasks).copyWith(
-        filterStatus: null,
-        filterPriority: null,
-        onlyStarred: false,
-        currentView: TaskView.all,
-      ));
+            filterStatus: null,
+            filterPriority: null,
+            onlyStarred: false,
+            currentView: TaskView.all,
+          ));
     } catch (e) {
-      emit(state.error(e.toString()));
+      emit(state.withError(e.toString()));
     }
   }
 
   /// Handle the load tasks by status event
-  void _onLoadTasksByStatus(LoadTasksByStatus event, Emitter<TaskState> emit) async {
+  void _onLoadTasksByStatus(
+      LoadTasksByStatus event, Emitter<TaskState> emit) async {
     emit(state.loading());
-    
+
     try {
       final tasks = await taskRepository.getTasksByStatus(event.status);
       emit(state.loaded(tasks).copyWith(
-        filterStatus: event.status,
-        filterPriority: null,
-        onlyStarred: false,
-        currentView: TaskView.byStatus,
-      ));
+            filterStatus: event.status,
+            filterPriority: null,
+            onlyStarred: false,
+            currentView: TaskView.byStatus,
+          ));
     } catch (e) {
-      emit(state.error(e.toString()));
+      emit(state.withError(e.toString()));
     }
   }
 
   /// Handle the load tasks by priority event
-  void _onLoadTasksByPriority(LoadTasksByPriority event, Emitter<TaskState> emit) async {
+  void _onLoadTasksByPriority(
+      LoadTasksByPriority event, Emitter<TaskState> emit) async {
     emit(state.loading());
-    
+
     try {
       final tasks = await taskRepository.getTasksByPriority(event.priority);
       emit(state.loaded(tasks).copyWith(
-        filterStatus: null,
-        filterPriority: event.priority,
-        onlyStarred: false,
-        currentView: TaskView.byPriority,
-      ));
+            filterStatus: null,
+            filterPriority: event.priority,
+            onlyStarred: false,
+            currentView: TaskView.byPriority,
+          ));
     } catch (e) {
-      emit(state.error(e.toString()));
+      emit(state.withError(e.toString()));
     }
   }
 
   /// Handle the load starred tasks event
-  void _onLoadStarredTasks(LoadStarredTasks event, Emitter<TaskState> emit) async {
+  void _onLoadStarredTasks(
+      LoadStarredTasks event, Emitter<TaskState> emit) async {
     emit(state.loading());
-    
+
     try {
       final tasks = await taskRepository.getStarredTasks();
       emit(state.loaded(tasks).copyWith(
-        filterStatus: null,
-        filterPriority: null,
-        onlyStarred: true,
-        currentView: TaskView.starred,
-      ));
+            filterStatus: null,
+            filterPriority: null,
+            onlyStarred: true,
+            currentView: TaskView.starred,
+          ));
     } catch (e) {
-      emit(state.error(e.toString()));
+      emit(state.withError(e.toString()));
     }
   }
 
   /// Handle the add task event
   void _onAddTask(AddTask event, Emitter<TaskState> emit) async {
     emit(state.loading());
-    
+
     try {
-      final newTask = await taskRepository.addTask(event.task);
-      
+      await taskRepository.addTask(event.task);
+
       // Reload tasks based on current view
       await _reloadTasksBasedOnCurrentView(emit);
     } catch (e) {
-      emit(state.error(e.toString()));
+      emit(state.withError(e.toString()));
     }
   }
 
   /// Handle the update task event
   void _onUpdateTask(UpdateTask event, Emitter<TaskState> emit) async {
     emit(state.loading());
-    
+
     try {
       await taskRepository.updateTask(event.task);
-      
+
       // Reload tasks based on current view
       await _reloadTasksBasedOnCurrentView(emit);
     } catch (e) {
-      emit(state.error(e.toString()));
+      emit(state.withError(e.toString()));
     }
   }
 
   /// Handle the delete task event
   void _onDeleteTask(DeleteTask event, Emitter<TaskState> emit) async {
     emit(state.loading());
-    
+
     try {
       await taskRepository.deleteTask(event.id);
-      
+
       // Reload tasks based on current view
       await _reloadTasksBasedOnCurrentView(emit);
     } catch (e) {
-      emit(state.error(e.toString()));
+      emit(state.withError(e.toString()));
     }
   }
 
   /// Handle the toggle task starred event
-  void _onToggleTaskStarred(ToggleTaskStarred event, Emitter<TaskState> emit) async {
+  void _onToggleTaskStarred(
+      ToggleTaskStarred event, Emitter<TaskState> emit) async {
     try {
       await taskRepository.toggleStarred(event.id);
-      
+
       // Reload tasks based on current view
       await _reloadTasksBasedOnCurrentView(emit);
     } catch (e) {
-      emit(state.error(e.toString()));
+      emit(state.withError(e.toString()));
     }
   }
 
   /// Handle the update task status event
-  void _onUpdateTaskStatus(UpdateTaskStatus event, Emitter<TaskState> emit) async {
+  void _onUpdateTaskStatus(
+      UpdateTaskStatus event, Emitter<TaskState> emit) async {
     try {
       await taskRepository.updateTaskStatus(event.id, event.status);
-      
+
       // Reload tasks based on current view
       await _reloadTasksBasedOnCurrentView(emit);
     } catch (e) {
-      emit(state.error(e.toString()));
+      emit(state.withError(e.toString()));
     }
   }
 
   /// Helper method to reload tasks based on the current view
   Future<void> _reloadTasksBasedOnCurrentView(Emitter<TaskState> emit) async {
     final currentView = state.currentView;
-    
+
     switch (currentView) {
       case TaskView.all:
         final tasks = await taskRepository.getTasks();
@@ -169,13 +174,15 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
         break;
       case TaskView.byStatus:
         if (state.filterStatus != null) {
-          final tasks = await taskRepository.getTasksByStatus(state.filterStatus!);
+          final tasks =
+              await taskRepository.getTasksByStatus(state.filterStatus!);
           emit(state.loaded(tasks));
         }
         break;
       case TaskView.byPriority:
         if (state.filterPriority != null) {
-          final tasks = await taskRepository.getTasksByPriority(state.filterPriority!);
+          final tasks =
+              await taskRepository.getTasksByPriority(state.filterPriority!);
           emit(state.loaded(tasks));
         }
         break;

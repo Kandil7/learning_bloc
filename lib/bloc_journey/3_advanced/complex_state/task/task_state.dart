@@ -40,7 +40,7 @@ class TaskState extends Equatable {
   }
 
   /// Error state
-  TaskState error(String message) {
+  TaskState withError(String message) {
     return copyWith(error: message, isLoading: false);
   }
 
