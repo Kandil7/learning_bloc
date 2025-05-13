@@ -1,5 +1,4 @@
 import 'package:get_it/get_it.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import '../data/datasources/task_local_data_source.dart';
 import '../data/repositories/task_repository_impl.dart';
 import '../domain/repositories/task_repository.dart';
@@ -9,7 +8,6 @@ import '../domain/usecases/get_task_by_id.dart';
 import '../domain/usecases/get_tasks.dart';
 import '../domain/usecases/update_task.dart';
 import '../presentation/bloc/task_bloc.dart';
-import '../../../core/network/network_info.dart';
 
 /// Initialize the dependency injection container for the task management feature
 Future<void> initTaskInjection(GetIt sl) async {
@@ -33,17 +31,12 @@ Future<void> initTaskInjection(GetIt sl) async {
 
   // Repository
   sl.registerLazySingleton<TaskRepository>(
-    () => TaskRepositoryImpl(
-      localDataSource: sl(),
-      networkInfo: sl(),
-    ),
+    () => TaskRepositoryImpl(localDataSource: sl(), networkInfo: sl()),
   );
 
   // Data sources
   sl.registerLazySingleton<TaskLocalDataSource>(
-    () => TaskLocalDataSourceImpl(
-      sharedPreferences: sl(),
-    ),
+    () => TaskLocalDataSourceImpl(sharedPreferences: sl()),
   );
 
   // External

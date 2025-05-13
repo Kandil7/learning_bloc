@@ -1,4 +1,4 @@
-import 'package:dartz/dartz.dart';
+import 'package:dartz/dartz.dart' hide Task;
 import '../entities/task.dart';
 import '../../../../core/error/failures.dart';
 
