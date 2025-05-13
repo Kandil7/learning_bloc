@@ -41,7 +41,7 @@ class _BlocObserverPageState extends State<BlocObserverPage> {
 
   // Original print function
   static void Function(Object?) originalPrint = print;
-  
+
   // Override the print function to capture logs
   void _overridePrint() {
     print = (Object? object) {
@@ -98,7 +98,7 @@ class _BlocObserverPageState extends State<BlocObserverPage> {
               style: TextStyle(fontSize: 16),
             ),
           ),
-          
+
           // BLoC and Cubit examples
           Padding(
             padding: const EdgeInsets.all(16.0),
@@ -121,7 +121,7 @@ class _BlocObserverPageState extends State<BlocObserverPage> {
                   },
                   child: const Text('Test Cubit'),
                 ),
-                
+
                 // BLoC example
                 ElevatedButton(
                   onPressed: () {
@@ -138,7 +138,7 @@ class _BlocObserverPageState extends State<BlocObserverPage> {
                   },
                   child: const Text('Test BLoC'),
                 ),
-                
+
                 // Error example
                 ElevatedButton(
                   onPressed: () {
@@ -158,7 +158,7 @@ class _BlocObserverPageState extends State<BlocObserverPage> {
               ],
             ),
           ),
-          
+
           // Logs section
           Expanded(
             child: Container(
@@ -176,7 +176,8 @@ class _BlocObserverPageState extends State<BlocObserverPage> {
                     padding: EdgeInsets.all(8.0),
                     child: Text(
                       'Debug Logs:',
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                     ),
                   ),
                   Expanded(
@@ -204,7 +205,7 @@ class _BlocObserverPageState extends State<BlocObserverPage> {
               ),
             ),
           ),
-          
+
           // Code explanation
           Container(
             margin: const EdgeInsets.all(16.0),
@@ -231,7 +232,8 @@ class _BlocObserverPageState extends State<BlocObserverPage> {
                 Text('  @override'),
                 Text('  void onChange(BlocBase bloc, Change change) {'),
                 Text('    super.onChange(bloc, change);'),
-                Text('    print(\'onChange -- \${bloc.runtimeType}, \$change\');'),
+                Text(
+                    '    print(\'onChange -- \${bloc.runtimeType}, \$change\');'),
                 Text('  }'),
                 Text(''),
                 Text('  // Other lifecycle methods...'),

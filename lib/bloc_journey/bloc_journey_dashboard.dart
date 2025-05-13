@@ -7,6 +7,10 @@ import 'package:flutter_mastery/bloc_journey/2_intermediate/bloc_communication/b
 import 'package:flutter_mastery/bloc_journey/2_intermediate/error_handling/error_handling_page.dart';
 import 'package:flutter_mastery/bloc_journey/2_intermediate/form_validation/form_validation_page.dart';
 import 'package:flutter_mastery/bloc_journey/2_intermediate/navigation/navigation_page.dart';
+import 'package:flutter_mastery/bloc_journey/3_advanced/clean_architecture/clean_architecture_page.dart';
+import 'package:flutter_mastery/bloc_journey/3_advanced/complex_state/complex_state_page.dart';
+import 'package:flutter_mastery/bloc_journey/3_advanced/dependency_injection/dependency_injection_page.dart';
+import 'package:flutter_mastery/bloc_journey/3_advanced/performance/performance_page.dart';
 
 /// BLoC Learning Journey Dashboard
 ///
@@ -142,7 +146,11 @@ class BlocJourneyDashboard extends StatelessWidget {
               description: 'Manage complex state with BLoC pattern',
               icon: Icons.account_tree,
               onTap: () {
-                // We'll implement navigation to the lesson page later
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const ComplexStatePage()),
+                );
               },
             ),
             _buildLessonCard(
@@ -151,7 +159,11 @@ class BlocJourneyDashboard extends StatelessWidget {
               description: 'Integrate BLoC with Clean Architecture',
               icon: Icons.architecture,
               onTap: () {
-                // We'll implement navigation to the lesson page later
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const CleanArchitecturePage()),
+                );
               },
             ),
             _buildLessonCard(
@@ -160,7 +172,11 @@ class BlocJourneyDashboard extends StatelessWidget {
               description: 'Use BLoC with Dependency Injection',
               icon: Icons.settings_input_component,
               onTap: () {
-                // We'll implement navigation to the lesson page later
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const DependencyInjectionPage()),
+                );
               },
             ),
             _buildLessonCard(
@@ -169,7 +185,11 @@ class BlocJourneyDashboard extends StatelessWidget {
               description: 'Optimize BLoC for better performance',
               icon: Icons.speed,
               onTap: () {
-                // We'll implement navigation to the lesson page later
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const PerformancePage()),
+                );
               },
             ),
           ],
