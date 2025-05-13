@@ -19,7 +19,9 @@ class ColorCubit extends Cubit<ColorState> {
     : _counterCubit = counterCubit,
       super(const ColorState(color: Colors.blue)) {
     // Listen to the CounterCubit
-    _counterSubscription = _counterCubit.stream.listen(_onCounterChanged);
+    _counterSubscription = _counterCubit.stream.listen((count) {
+      _onCounterChanged(count);
+    });
   }
 
   /// Handle counter changes

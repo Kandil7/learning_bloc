@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mastery/bloc_journey/bloc_journey_dashboard.dart';
+import 'package:flutter_mastery/bloc_implementation/bloc_implementation_dashboard.dart';
 import 'package:flutter_mastery/features/1_fundamentals/counter_app/presentation/pages/counter_page.dart';
 import 'package:flutter_mastery/features/2_state_management/bloc_basics/presentation/pages/bloc_basics_page.dart';
 import 'package:flutter_mastery/features/2_state_management/form_validation/presentation/pages/form_validation_page.dart';
@@ -37,6 +38,20 @@ class DashboardPage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) => const BlocJourneyDashboard(),
+                    ),
+                  ),
+            ),
+            _buildFeatureCard(
+              context,
+              title: 'BLoC Implementation',
+              description:
+                  'Comprehensive implementation of BLoC pattern concepts',
+              icon: Icons.code,
+              onTap:
+                  () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const BlocImplementationDashboard(),
                     ),
                   ),
             ),
