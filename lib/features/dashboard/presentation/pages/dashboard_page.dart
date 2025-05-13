@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mastery/bloc_journey/bloc_journey_dashboard.dart';
 import 'package:flutter_mastery/features/1_fundamentals/counter_app/presentation/pages/counter_page.dart';
 import 'package:flutter_mastery/features/2_state_management/bloc_basics/presentation/pages/bloc_basics_page.dart';
 import 'package:flutter_mastery/features/2_state_management/form_validation/presentation/pages/form_validation_page.dart';
@@ -28,6 +29,18 @@ class DashboardPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            _buildFeatureCard(
+              context,
+              title: 'BLoC Learning Journey',
+              description: 'Step-by-step guide to mastering BLoC pattern',
+              icon: Icons.school,
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const BlocJourneyDashboard()),
+              ),
+            ),
+            const SizedBox(height: 16),
             _buildSectionTitle(context, '1. Fundamentals'),
             _buildFeatureCard(
               context,
