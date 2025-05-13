@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 /// Custom BLoC Observer
@@ -6,13 +7,30 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 /// It provides hooks for various lifecycle events, such as creation, state changes,
 /// event processing, transitions, errors, and closure.
 class CustomBlocObserver extends BlocObserver {
-  /// Constructor with optional debug flag
+  /// Constructor with optional debug flag and custom print function
   ///
   /// When debug is true, all events will be printed to the console
-  const CustomBlocObserver({this.debug = true});
+  /// The customPrint function allows redirecting print output
+  const CustomBlocObserver({
+    this.debug = true,
+    this.customPrint,
+  });
 
   /// Flag to enable/disable debug prints
   final bool debug;
+
+  /// Optional custom print function
+  final void Function(Object?)? customPrint;
+
+  /// Internal print method that uses customPrint if provided, otherwise uses debugPrint
+  void _print(Object? object) {
+    if (customPrint != null) {
+      customPrint!(object);
+    } else {
+      // Use debugPrint instead of print for better logging in Flutter
+      debugPrint(object?.toString());
+    }
+  }
 
   /// Called when a BLoC or Cubit is created
   ///
@@ -21,7 +39,7 @@ class CustomBlocObserver extends BlocObserver {
   void onCreate(BlocBase bloc) {
     super.onCreate(bloc);
     if (debug) {
-      print('🟢 onCreate -- ${bloc.runtimeType}');
+      _print('🟢 onCreate -- ${bloc.runtimeType}');
     }
   }
 
@@ -32,7 +50,7 @@ class CustomBlocObserver extends BlocObserver {
   void onChange(BlocBase bloc, Change change) {
     super.onChange(bloc, change);
     if (debug) {
-      print('🔄 onChange -- ${bloc.runtimeType}, $change');
+      _print('🔄 onChange -- ${bloc.runtimeType}, $change');
     }
   }
 
@@ -43,7 +61,7 @@ class CustomBlocObserver extends BlocObserver {
   void onEvent(Bloc bloc, Object? event) {
     super.onEvent(bloc, event);
     if (debug) {
-      print('📩 onEvent -- ${bloc.runtimeType}, $event');
+      _print('📩 onEvent -- ${bloc.runtimeType}, $event');
     }
   }
 
@@ -55,7 +73,7 @@ class CustomBlocObserver extends BlocObserver {
   void onTransition(Bloc bloc, Transition transition) {
     super.onTransition(bloc, transition);
     if (debug) {
-      print('🔀 onTransition -- ${bloc.runtimeType}, $transition');
+      _print('🔀 onTransition -- ${bloc.runtimeType}, $transition');
     }
   }
 
@@ -66,8 +84,8 @@ class CustomBlocObserver extends BlocObserver {
   void onError(BlocBase bloc, Object error, StackTrace stackTrace) {
     super.onError(bloc, error, stackTrace);
     if (debug) {
-      print('❌ onError -- ${bloc.runtimeType}, $error');
-      print('StackTrace: $stackTrace');
+      _print('❌ onError -- ${bloc.runtimeType}, $error');
+      _print('StackTrace: $stackTrace');
     }
   }
 
@@ -78,7 +96,7 @@ class CustomBlocObserver extends BlocObserver {
   void onClose(BlocBase bloc) {
     super.onClose(bloc);
     if (debug) {
-      print('🔴 onClose -- ${bloc.runtimeType}');
+      _print('🔴 onClose -- ${bloc.runtimeType}');
     }
   }
 }

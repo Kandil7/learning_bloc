@@ -25,7 +25,7 @@ class _BlocObserverPageState extends State<BlocObserverPage> {
   void initState() {
     super.initState();
     // Set up a custom BLoC observer that adds logs to our list
-    Bloc.observer = CustomBlocObserver(debug: false);
+    Bloc.observer = const CustomBlocObserver(debug: false);
     // Override the print function to capture logs
     _overridePrint();
   }
@@ -39,32 +39,39 @@ class _BlocObserverPageState extends State<BlocObserverPage> {
     super.dispose();
   }
 
-  // Original print function
-  static void Function(Object?) originalPrint = print;
+  // Custom print function to capture logs
+  void _customPrint(Object? object) {
+    // Print to console
+    debugPrint(object?.toString());
+    // Add to logs
+    setState(() {
+      _logs.add(object?.toString() ?? "null");
+      // Scroll to the bottom of the logs
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (_scrollController.hasClients) {
+          _scrollController.animateTo(
+            _scrollController.position.maxScrollExtent,
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.easeOut,
+          );
+        }
+      });
+    });
+  }
 
   // Override the print function to capture logs
   void _overridePrint() {
-    print = (Object? object) {
-      originalPrint(object);
-      setState(() {
-        _logs.add(object.toString());
-        // Scroll to the bottom of the logs
-        WidgetsBinding.instance.addPostFrameCallback((_) {
-          if (_scrollController.hasClients) {
-            _scrollController.animateTo(
-              _scrollController.position.maxScrollExtent,
-              duration: const Duration(milliseconds: 300),
-              curve: Curves.easeOut,
-            );
-          }
-        });
-      });
-    };
+    // Set our custom BlocObserver with the custom print function
+    Bloc.observer = CustomBlocObserver(
+      debug: true,
+      customPrint: _customPrint,
+    );
   }
 
   // Restore the original print function
   void _restorePrint() {
-    print = originalPrint;
+    // Reset to a new default BlocObserver
+    Bloc.observer = const CustomBlocObserver(debug: false);
   }
 
   @override
@@ -148,7 +155,14 @@ class _BlocObserverPageState extends State<BlocObserverPage> {
                     try {
                       throw Exception('Test error in Cubit');
                     } catch (e, stackTrace) {
-                      cubit.addError(e, stackTrace);
+                      // Use reportError instead of addError
+                      FlutterError.reportError(FlutterErrorDetails(
+                        exception: e,
+                        stack: stackTrace,
+                        library: 'BlocObserverPage',
+                        context: ErrorDescription('during test error'),
+                      ));
+                      // The BlocObserver will still catch this error
                     }
                     // Close the cubit
                     cubit.close();
@@ -214,9 +228,9 @@ class _BlocObserverPageState extends State<BlocObserverPage> {
               color: Colors.grey[200],
               borderRadius: BorderRadius.circular(8.0),
             ),
-            child: Column(
+            child: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text(
                   'BLoC Observer Implementation:',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),

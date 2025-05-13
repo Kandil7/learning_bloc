@@ -6,7 +6,8 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.1.3 <4.0.0'
+  sdk: '>=3.7.2 <4.0.0'
+  flutter: ">=3.29.3"
 
 dependencies:
   flutter:
@@ -15,26 +16,28 @@ dependencies:
 
 
   cupertino_icons: ^1.0.6
-  flutter_bloc: ^8.1.3
+  flutter_bloc: ^8.1.4
   shared_preferences: ^2.2.2
   intl: ^0.19.0
 
   flutter_localizations:
     sdk: flutter
-  localization: ^2.1.0
-  connectivity_plus: ^5.0.0
+  localization: ^2.1.1
+  connectivity_plus: ^5.0.2
   equatable: ^2.0.5
-  dio: ^5.3.3
-  bloc_concurrency: ^0.2.2
+  dio: ^5.4.0
+  bloc_concurrency: ^0.2.3
   loading_animation_widget: ^1.2.0+4
-  get_it: ^7.6.4
+  get_it: ^7.6.7
   dartz: ^0.10.1
+
+  # We don't need win32 explicitly
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^2.0.3
+  flutter_lints: ^3.0.1
 
 flutter:
   generate: true
@@ -50,3 +53,10 @@ flutter:
     - assets/images/
 flutter_intl:
   enabled: true
+
+# Force all packages to use compatible versions
+dependency_overrides:
+  # Use a specific version of win32 that works with our dependencies
+  win32: ^2.5.0
+  # Ensure we have the latest collection package
+  collection: ^1.17.2

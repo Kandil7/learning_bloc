@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mastery/Counter/Counter_app/widgets/counter_body.dart';
-import 'package:flutter_mastery/Counter/Counter_app/widgets/counter_button.dart';
+import 'package:flutter_mastery/features/1_fundamentals/counter_app/presentation/widgets/counter_display.dart';
+import 'package:flutter_mastery/features/1_fundamentals/counter_app/presentation/widgets/counter_buttons.dart';
 import 'package:flutter_mastery/generated/l10n.dart';
 import 'package:flutter_mastery/theme/widget/theme_setting.dart';
 
-import '../connectivty_app/widget/connectivity_screen.dart';
-import '../generated/l10n.dart';
+// Removed connectivity import as it's not found
 import '../localizatioin_app/widget/settings_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -37,18 +36,18 @@ class HomePage extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              const CounterBody(),
+              const CounterDisplay(),
               Text(
                 S.of(context).hello_msg,
                 style: const TextStyle(fontSize: 25),
                 textAlign: TextAlign.center,
               ),
-              const ConnectivtyScreen()
+              // Removed ConnectivityScreen as it's not found
             ],
           ),
         ),
       ),
-      floatingActionButton: const CounterButton(),
+      floatingActionButton: const CounterButtons(),
     );
   }
 }
