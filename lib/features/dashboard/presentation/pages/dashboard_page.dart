@@ -10,6 +10,7 @@ import 'package:flutter_mastery/features/4_design_patterns/observer_pattern/pres
 import 'package:flutter_mastery/features/5_real_world/connectivity_app/presentation/pages/connectivity_page.dart';
 import 'package:flutter_mastery/features/5_real_world/posts_app/presentation/pages/posts_page.dart';
 import 'package:flutter_mastery/features/5_real_world/todos_app/presentation/pages/todos_page.dart';
+import 'package:flutter_mastery/features/6_ui/ui_dashboard.dart';
 import 'package:flutter_mastery/features/dashboard/presentation/widgets/feature_card.dart';
 
 /// Dashboard page for the FlutterMastery application
@@ -178,6 +179,21 @@ class DashboardPage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) => const ConnectivityPage(),
+                    ),
+                  ),
+            ),
+            const SizedBox(height: 16),
+            _buildSectionTitle(context, '6. UI Components'),
+            _buildFeatureCard(
+              context,
+              title: 'UI Components',
+              description: 'Learn about Flutter UI components and design',
+              icon: Icons.design_services,
+              onTap:
+                  () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const UIDashboard(),
                     ),
                   ),
             ),
