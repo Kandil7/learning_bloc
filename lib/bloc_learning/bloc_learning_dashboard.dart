@@ -7,7 +7,7 @@ import 'package:flutter_mastery/bloc_learning/examples/form_validation_example/f
 import 'package:flutter_mastery/bloc_learning/examples/observer_pattern_example/screens/observer_pattern_screen.dart';
 import 'package:flutter_mastery/bloc_learning/examples/repository_pattern_example/repository_pattern_screen.dart';
 import 'package:flutter_mastery/bloc_learning/examples/state_management_example/state_management_screen.dart';
-import 'package:flutter_mastery/bloc_learning/examples/stream_example/stream_example_screen.dart';
+import 'package:flutter_mastery/features/2_state_management/stream_example/stream_example_screen.dart';
 import 'package:flutter_mastery/bloc_learning/theory/bloc_theory.dart';
 import 'package:flutter_mastery/features/5_real_world/posts_app/presentation/pages/post_screen.dart';
 import 'package:flutter_mastery/todo_app/pages/todos_page.dart';
