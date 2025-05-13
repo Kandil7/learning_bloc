@@ -34,7 +34,14 @@ The project is organized into a progressive learning path:
 - Singleton pattern
 - Adapter pattern
 
-### 5. Real-World Applications
+### 5. UI Components
+- Basic UI Components (Text, Image, Icon, Layout Widgets, Box Model, Constraints)
+- Material Design (Components, Theming, Navigation Patterns, Form Components)
+- Cupertino Design (iOS-style components, Platform-Adaptive Design, iOS Navigation)
+- Responsive Design (MediaQuery, LayoutBuilder, Responsive Patterns, Adaptive Widgets)
+- Advanced UI Techniques (Custom Animations, Custom Painting, Gesture Handling, Performance)
+
+### 6. Real-World Applications
 - REST API integration
 - Network connectivity monitoring
 - Todo list management
