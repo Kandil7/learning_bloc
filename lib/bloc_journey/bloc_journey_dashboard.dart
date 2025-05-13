@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mastery/bloc_journey/1_basics/bloc_observer/bloc_observer_page.dart';
+import 'package:flutter_mastery/bloc_journey/1_basics/bloc_theory.dart';
+import 'package:flutter_mastery/bloc_journey/1_basics/counter_bloc/counter_bloc_page.dart';
+import 'package:flutter_mastery/bloc_journey/1_basics/counter_cubit/counter_cubit_page.dart';
 
 /// BLoC Learning Journey Dashboard
 ///
@@ -26,7 +30,11 @@ class BlocJourneyDashboard extends StatelessWidget {
               description: 'Learn the core concepts of BLoC pattern',
               icon: Icons.school,
               onTap: () {
-                // We'll implement navigation to the lesson page later
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const BlocTheoryPage()),
+                );
               },
             ),
             _buildLessonCard(
@@ -35,7 +43,11 @@ class BlocJourneyDashboard extends StatelessWidget {
               description: 'Implement a simple counter using Cubit',
               icon: Icons.add_circle,
               onTap: () {
-                // We'll implement navigation to the lesson page later
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const CounterCubitPage()),
+                );
               },
             ),
             _buildLessonCard(
@@ -44,7 +56,11 @@ class BlocJourneyDashboard extends StatelessWidget {
               description: 'Implement a counter using BLoC with events',
               icon: Icons.sync_alt,
               onTap: () {
-                // We'll implement navigation to the lesson page later
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const CounterBlocPage()),
+                );
               },
             ),
             _buildLessonCard(
@@ -53,11 +69,14 @@ class BlocJourneyDashboard extends StatelessWidget {
               description: 'Debug BLoC state changes with BLoC Observer',
               icon: Icons.visibility,
               onTap: () {
-                // We'll implement navigation to the lesson page later
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const BlocObserverPage()),
+                );
               },
             ),
             const SizedBox(height: 16),
-            
             _buildSectionTitle(context, '2. Intermediate'),
             _buildLessonCard(
               context,
@@ -96,7 +115,6 @@ class BlocJourneyDashboard extends StatelessWidget {
               },
             ),
             const SizedBox(height: 16),
-            
             _buildSectionTitle(context, '3. Advanced'),
             _buildLessonCard(
               context,
