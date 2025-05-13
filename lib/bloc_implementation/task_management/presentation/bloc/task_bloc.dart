@@ -1,5 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../domain/entities/task.dart';
 import '../../domain/usecases/create_task.dart';
 import '../../domain/usecases/delete_task.dart';
 import '../../domain/usecases/get_task_by_id.dart';
@@ -50,10 +49,7 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
   }
 
   /// Handle the LoadTaskEvent
-  Future<void> _onLoadTask(
-    LoadTaskEvent event,
-    Emitter<TaskState> emit,
-  ) async {
+  Future<void> _onLoadTask(LoadTaskEvent event, Emitter<TaskState> emit) async {
     emit(const TaskLoading());
     final result = await getTaskById(TaskParams(id: event.id));
     result.fold(
@@ -97,7 +93,8 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
     final result = await deleteTask(DeleteTaskParams(id: event.id));
     result.fold(
       (failure) => emit(TaskOperationFailure(failure.message)),
-      (success) => emit(const TaskOperationSuccess('Task deleted successfully')),
+      (success) =>
+          emit(const TaskOperationSuccess('Task deleted successfully')),
     );
   }
 
@@ -107,11 +104,14 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
     Emitter<TaskState> emit,
   ) async {
     emit(const TaskLoading());
-    final toggledTask = event.task.copyWith(isCompleted: !event.task.isCompleted);
+    final toggledTask = event.task.copyWith(
+      isCompleted: !event.task.isCompleted,
+    );
     final result = await updateTask(UpdateTaskParams(task: toggledTask));
     result.fold(
       (failure) => emit(TaskOperationFailure(failure.message)),
-      (task) => emit(const TaskOperationSuccess('Task status toggled successfully')),
+      (task) =>
+          emit(const TaskOperationSuccess('Task status toggled successfully')),
     );
   }
 }

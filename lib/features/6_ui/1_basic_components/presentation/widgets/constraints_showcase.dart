@@ -20,19 +20,19 @@ class ConstraintsShowcase extends StatelessWidget {
         _buildSectionTitle(context, 'BoxConstraints'),
         _buildBoxConstraintsSection(),
         const SizedBox(height: 24),
-        
+
         _buildSectionTitle(context, 'SizedBox'),
         _buildSizedBoxSection(),
         const SizedBox(height: 24),
-        
+
         _buildSectionTitle(context, 'ConstrainedBox'),
         _buildConstrainedBoxSection(),
         const SizedBox(height: 24),
-        
+
         _buildSectionTitle(context, 'UnconstrainedBox'),
         _buildUnconstrainedBoxSection(),
         const SizedBox(height: 24),
-        
+
         _buildSectionTitle(context, 'AspectRatio'),
         _buildAspectRatioSection(),
       ],
@@ -45,9 +45,9 @@ class ConstraintsShowcase extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 8.0),
       child: Text(
         title,
-        style: Theme.of(context).textTheme.titleMedium?.copyWith(
-              fontWeight: FontWeight.bold,
-            ),
+        style: Theme.of(
+          context,
+        ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
       ),
     );
   }
@@ -70,7 +70,7 @@ class ConstraintsShowcase extends StatelessWidget {
             Container(
               color: Colors.grey[200],
               child: Container(
-                constraints: const BoxConstraints.tight(Size(150, 100)),
+                constraints: BoxConstraints.tight(Size(150, 100)),
                 color: Colors.blue,
                 child: const Center(
                   child: Text(

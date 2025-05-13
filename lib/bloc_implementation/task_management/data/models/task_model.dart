@@ -7,20 +7,13 @@ import '../../domain/entities/task.dart';
 class TaskModel extends Task {
   /// Creates a new TaskModel instance
   const TaskModel({
-    required String id,
-    required String title,
-    String description = '',
-    bool isCompleted = false,
-    required DateTime createdAt,
-    DateTime? dueDate,
-  }) : super(
-          id: id,
-          title: title,
-          description: description,
-          isCompleted: isCompleted,
-          createdAt: createdAt,
-          dueDate: dueDate,
-        );
+    required super.id,
+    required super.title,
+    super.description = '',
+    super.isCompleted = false,
+    required super.createdAt,
+    super.dueDate,
+  });
 
   /// Creates a TaskModel from a JSON map
   factory TaskModel.fromJson(Map<String, dynamic> json) {

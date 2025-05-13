@@ -1,4 +1,4 @@
-import 'package:dartz/dartz.dart';
+import 'package:dartz/dartz.dart' hide Task;
 import 'package:equatable/equatable.dart';
 import '../entities/task.dart';
 import '../repositories/task_repository.dart';

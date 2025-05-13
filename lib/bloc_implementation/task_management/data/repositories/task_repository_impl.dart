@@ -1,4 +1,4 @@
-import 'package:dartz/dartz.dart';
+import 'package:dartz/dartz.dart' hide Task;
 import '../../domain/entities/task.dart';
 import '../../domain/repositories/task_repository.dart';
 import '../datasources/task_local_data_source.dart';
@@ -24,8 +24,9 @@ class TaskRepositoryImpl implements TaskRepository {
   @override
   Future<Either<Failure, List<Task>>> getTasks() async {
     try {
-      final tasks = await localDataSource.getTasks();
-      return Right(tasks);
+      final taskModels = await localDataSource.getTasks();
+      // TaskModel already extends Task, so we can return it directly
+      return Right(taskModels);
     } on CacheException catch (e) {
       return Left(CacheFailure(message: e.message));
     }

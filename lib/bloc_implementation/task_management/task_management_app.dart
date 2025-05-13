@@ -11,7 +11,7 @@ class TaskManagementApp extends StatelessWidget {
   static final sl = GetIt.instance;
 
   /// Creates a new TaskManagementApp instance
-  const TaskManagementApp({Key? key}) : super(key: key);
+  const TaskManagementApp({super.key});
 
   /// Initialize the task management feature
   static Future<void> init() async {
