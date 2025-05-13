@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../counter/counter_cubit.dart';
@@ -15,8 +16,8 @@ class ColorCubit extends Cubit<ColorState> {
   ///
   /// It takes a CounterCubit instance to listen to counter changes.
   ColorCubit({required CounterCubit counterCubit})
-      : _counterCubit = counterCubit,
-        super(const ColorState(color: Colors.blue)) {
+    : _counterCubit = counterCubit,
+      super(const ColorState(color: Colors.blue)) {
     // Listen to the CounterCubit
     _counterSubscription = _counterCubit.stream.listen(_onCounterChanged);
   }
@@ -43,5 +44,4 @@ class ColorCubit extends Cubit<ColorState> {
   }
 }
 
-/// StreamSubscription type
-typedef StreamSubscription<T> = Stream<T> Function();
+// Remove the incorrect typedef
