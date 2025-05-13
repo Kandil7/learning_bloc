@@ -3,6 +3,10 @@ import 'package:flutter_mastery/bloc_journey/1_basics/bloc_observer/bloc_observe
 import 'package:flutter_mastery/bloc_journey/1_basics/bloc_theory.dart';
 import 'package:flutter_mastery/bloc_journey/1_basics/counter_bloc/counter_bloc_page.dart';
 import 'package:flutter_mastery/bloc_journey/1_basics/counter_cubit/counter_cubit_page.dart';
+import 'package:flutter_mastery/bloc_journey/2_intermediate/bloc_communication/bloc_communication_page.dart';
+import 'package:flutter_mastery/bloc_journey/2_intermediate/error_handling/error_handling_page.dart';
+import 'package:flutter_mastery/bloc_journey/2_intermediate/form_validation/form_validation_page.dart';
+import 'package:flutter_mastery/bloc_journey/2_intermediate/navigation/navigation_page.dart';
 
 /// BLoC Learning Journey Dashboard
 ///
@@ -84,7 +88,11 @@ class BlocJourneyDashboard extends StatelessWidget {
               description: 'Implement form validation using BLoC',
               icon: Icons.check_circle,
               onTap: () {
-                // We'll implement navigation to the lesson page later
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const FormValidationPage()),
+                );
               },
             ),
             _buildLessonCard(
@@ -93,7 +101,11 @@ class BlocJourneyDashboard extends StatelessWidget {
               description: 'Manage navigation using BLoC pattern',
               icon: Icons.navigation,
               onTap: () {
-                // We'll implement navigation to the lesson page later
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const NavigationPage()),
+                );
               },
             ),
             _buildLessonCard(
@@ -102,7 +114,11 @@ class BlocJourneyDashboard extends StatelessWidget {
               description: 'Learn how to communicate between BLoCs',
               icon: Icons.compare_arrows,
               onTap: () {
-                // We'll implement navigation to the lesson page later
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const BlocCommunicationPage()),
+                );
               },
             ),
             _buildLessonCard(
@@ -111,7 +127,11 @@ class BlocJourneyDashboard extends StatelessWidget {
               description: 'Handle errors and loading states with BLoC',
               icon: Icons.error,
               onTap: () {
-                // We'll implement navigation to the lesson page later
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const ErrorHandlingPage()),
+                );
               },
             ),
             const SizedBox(height: 16),
