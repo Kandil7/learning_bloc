@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mastery/features/6_ui/1_basic_components/presentation/pages/basic_components_page.dart';
 import 'package:flutter_mastery/features/6_ui/2_material_design/presentation/pages/material_design_page.dart';
+import 'package:flutter_mastery/features/6_ui/3_cupertino_design/presentation/pages/cupertino_design_page.dart';
+import 'package:flutter_mastery/features/6_ui/4_responsive_design/presentation/pages/responsive_design_page.dart';
+import 'package:flutter_mastery/features/6_ui/5_advanced_ui/presentation/pages/advanced_ui_page.dart';
 
 /// Dashboard for the UI section
 ///
@@ -36,9 +39,7 @@ class UIDashboard extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => const BasicComponentsPage(),
-                  ),
+                  _createAnimatedRoute(const BasicComponentsPage()),
                 );
               },
             ),
@@ -50,9 +51,7 @@ class UIDashboard extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => const MaterialDesignPage(),
-                  ),
+                  _createAnimatedRoute(const MaterialDesignPage()),
                 );
               },
             ),
@@ -62,8 +61,10 @@ class UIDashboard extends StatelessWidget {
               description: 'Create iOS-style interfaces with Cupertino widgets',
               icon: Icons.phone_iphone,
               onTap: () {
-                // Will be implemented in future commits
-                _showComingSoonDialog(context, 'Cupertino Design');
+                Navigator.push(
+                  context,
+                  _createAnimatedRoute(const CuperinoDesignPage()),
+                );
               },
             ),
             _buildTopicCard(
@@ -72,8 +73,10 @@ class UIDashboard extends StatelessWidget {
               description: 'Build adaptive UIs that work on any screen size',
               icon: Icons.devices,
               onTap: () {
-                // Will be implemented in future commits
-                _showComingSoonDialog(context, 'Responsive Design');
+                Navigator.push(
+                  context,
+                  _createAnimatedRoute(const ResponsiveDesignPage()),
+                );
               },
             ),
             _buildTopicCard(
@@ -82,8 +85,10 @@ class UIDashboard extends StatelessWidget {
               description: 'Master custom animations, painters, and styling',
               icon: Icons.auto_awesome,
               onTap: () {
-                // Will be implemented in future commits
-                _showComingSoonDialog(context, 'Advanced UI Techniques');
+                Navigator.push(
+                  context,
+                  _createAnimatedRoute(const AdvancedUIPage()),
+                );
               },
             ),
           ],
@@ -129,6 +134,22 @@ class UIDashboard extends StatelessWidget {
           style: Theme.of(context).textTheme.bodyLarge,
         ),
       ],
+    );
+  }
+
+  /// Creates an animated page route transition
+  PageRouteBuilder _createAnimatedRoute(Widget page) {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => page,
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        const begin = Offset(1.0, 0.0);
+        const end = Offset.zero;
+        const curve = Curves.easeInOut;
+        var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+        var offsetAnimation = animation.drive(tween);
+        return SlideTransition(position: offsetAnimation, child: child);
+      },
+      transitionDuration: const Duration(milliseconds: 300),
     );
   }
 
