@@ -2,6 +2,8 @@
 
 This section covers advanced state management techniques in Flutter, with a focus on the BLoC pattern.
 
+> Updated by Mohamed Kandil (@Kandil7)
+
 ## Learning Objectives
 
 - Understand different state management approaches in Flutter
