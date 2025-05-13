@@ -30,6 +30,7 @@ dependencies:
   loading_animation_widget: ^1.2.0+4
   get_it: ^7.6.7
   dartz: ^0.10.1
+  formz: ^0.6.1
 
   # We don't need win32 explicitly
 
