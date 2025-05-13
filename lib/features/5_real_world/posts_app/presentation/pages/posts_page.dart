@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter_mastery/features/5_real_world/posts_app/presentation/bloc/post_event.dart';
 import '../bloc/post_bloc.dart';
 import 'post_screen.dart';
 
@@ -33,7 +34,8 @@ class PostsPage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) => BlocProvider(
-                        create: (context) => PostBloc()..add(const FetchPostsEvent()),
+                        create: (context) =>
+                            PostBloc()..add(const FetchPostsEvent()),
                         child: const PostScreen(),
                       ),
                     ),
@@ -84,9 +86,12 @@ class PostsPage extends StatelessWidget {
             Text(
               'The app is structured following Clean Architecture:',
             ),
-            Text('• Domain Layer: Post entity, PostRepository interface, GetPosts use case'),
-            Text('• Data Layer: PostModel, PostRemoteDataSource, PostRepositoryImpl'),
-            Text('• Presentation Layer: PostBloc, PostEvent, PostState, UI components'),
+            Text(
+                '• Domain Layer: Post entity, PostRepository interface, GetPosts use case'),
+            Text(
+                '• Data Layer: PostModel, PostRemoteDataSource, PostRepositoryImpl'),
+            Text(
+                '• Presentation Layer: PostBloc, PostEvent, PostState, UI components'),
           ],
         ),
       ),

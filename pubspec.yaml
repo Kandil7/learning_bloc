@@ -28,6 +28,7 @@ dependencies:
   bloc_concurrency: ^0.2.2
   loading_animation_widget: ^1.2.0+4
   get_it: ^7.6.4
+  dartz: ^0.10.1
 
 dev_dependencies:
   flutter_test:

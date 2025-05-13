@@ -1,11 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:learning_bloc/todo_app/bloc/todos_event.dart';
-import 'package:learning_bloc/todo_app/bloc/todos_state.dart';
-
+import 'package:flutter_mastery/todo_app/bloc/todos_event.dart';
+import 'package:flutter_mastery/todo_app/bloc/todos_state.dart';
 
 import '../api/todo_api.dart';
-
-
 
 class TodosBloc extends Bloc<TodosEvent, TodosState> {
   final TodosApi todosApi;

@@ -1,15 +1,15 @@
-# Migration Guide: learning_bloc to FlutterMastery
+# Migration Guide: flutter_mastery to FlutterMastery
 
 This guide explains the changes made to the project structure and organization to improve the learning experience.
 
 ## Project Renaming
 
-The project has been renamed from "learning_bloc" to "FlutterMastery" to better reflect its purpose as a comprehensive Flutter learning resource.
+The project has been renamed from "flutter_mastery" to "FlutterMastery" to better reflect its purpose as a comprehensive Flutter learning resource.
 
 ### Changes Made:
 
 1. Updated `pubspec.yaml` with the new name and description
-2. Updated Android package name from `com.learningbloc.learning_bloc` to `com.fluttermastery.app`
+2. Updated Android package name from `com.learningbloc.flutter_mastery` to `com.fluttermastery.app`
 3. Updated import statements to use the new package name
 4. Updated app title and branding
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:learning_bloc/bloc_learning/examples/form_validation_example/form_validation_bloc.dart';
+import 'package:flutter_mastery/bloc_learning/examples/form_validation_example/form_validation_bloc.dart';
 
 class FormValidationScreen extends StatelessWidget {
   const FormValidationScreen({Key? key}) : super(key: key);
@@ -24,7 +24,7 @@ class FormValidationScreen extends StatelessWidget {
                 ),
               );
             }
-            
+
             if (state.errorMessage != null) {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
@@ -47,7 +47,7 @@ class FormValidationScreen extends StatelessWidget {
                   _PasswordInput(),
                   const SizedBox(height: 24),
                   _SubmitButton(),
-                  if (state.isSubmitting) ...[  
+                  if (state.isSubmitting) ...[
                     const SizedBox(height: 16),
                     const Center(child: CircularProgressIndicator()),
                   ],
@@ -81,10 +81,14 @@ class FormValidationScreen extends StatelessWidget {
             style: TextStyle(fontSize: 14),
           ),
           SizedBox(height: 4),
-          Text('• Email must contain @ and . characters', style: TextStyle(fontSize: 14)),
-          Text('• Password must be at least 6 characters', style: TextStyle(fontSize: 14)),
-          Text('• Form submission is enabled only when all fields are valid', style: TextStyle(fontSize: 14)),
-          Text('• BlocConsumer is used to show feedback on form submission', style: TextStyle(fontSize: 14)),
+          Text('• Email must contain @ and . characters',
+              style: TextStyle(fontSize: 14)),
+          Text('• Password must be at least 6 characters',
+              style: TextStyle(fontSize: 14)),
+          Text('• Form submission is enabled only when all fields are valid',
+              style: TextStyle(fontSize: 14)),
+          Text('• BlocConsumer is used to show feedback on form submission',
+              style: TextStyle(fontSize: 14)),
         ],
       ),
     );
@@ -95,8 +99,8 @@ class _EmailInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<FormValidationBloc, FormValidationState>(
-      buildWhen: (previous, current) => 
-          previous.email != current.email || 
+      buildWhen: (previous, current) =>
+          previous.email != current.email ||
           previous.isEmailValid != current.isEmailValid,
       builder: (context, state) {
         return TextField(
@@ -123,8 +127,8 @@ class _PasswordInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<FormValidationBloc, FormValidationState>(
-      buildWhen: (previous, current) => 
-          previous.password != current.password || 
+      buildWhen: (previous, current) =>
+          previous.password != current.password ||
           previous.isPasswordValid != current.isPasswordValid,
       builder: (context, state) {
         return TextField(
@@ -151,8 +155,8 @@ class _SubmitButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<FormValidationBloc, FormValidationState>(
-      buildWhen: (previous, current) => 
-          previous.isFormValid != current.isFormValid || 
+      buildWhen: (previous, current) =>
+          previous.isFormValid != current.isFormValid ||
           previous.isSubmitting != current.isSubmitting,
       builder: (context, state) {
         return ElevatedButton(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:learning_bloc/bloc_learning/examples/repository_pattern_example/user_bloc.dart';
-import 'package:learning_bloc/bloc_learning/examples/repository_pattern_example/user_repository.dart';
+import 'package:flutter_mastery/bloc_learning/examples/repository_pattern_example/user_bloc.dart';
+import 'package:flutter_mastery/bloc_learning/examples/repository_pattern_example/user_repository.dart';
 
 class RepositoryPatternScreen extends StatelessWidget {
   const RepositoryPatternScreen({Key? key}) : super(key: key);
@@ -53,11 +53,17 @@ class RepositoryPatternScreen extends StatelessWidget {
             style: TextStyle(fontSize: 14),
           ),
           SizedBox(height: 4),
-          Text('• Abstracts data sources (API, database, cache)', style: TextStyle(fontSize: 14)),
-          Text('• Makes code more testable with dependency injection', style: TextStyle(fontSize: 14)),
-          Text('• Centralizes data access logic', style: TextStyle(fontSize: 14)),
-          Text('• Allows easy switching between data sources', style: TextStyle(fontSize: 14)),
-          Text('• BLoC interacts with repository instead of directly with data sources', style: TextStyle(fontSize: 14)),
+          Text('• Abstracts data sources (API, database, cache)',
+              style: TextStyle(fontSize: 14)),
+          Text('• Makes code more testable with dependency injection',
+              style: TextStyle(fontSize: 14)),
+          Text('• Centralizes data access logic',
+              style: TextStyle(fontSize: 14)),
+          Text('• Allows easy switching between data sources',
+              style: TextStyle(fontSize: 14)),
+          Text(
+              '• BLoC interacts with repository instead of directly with data sources',
+              style: TextStyle(fontSize: 14)),
         ],
       ),
     );

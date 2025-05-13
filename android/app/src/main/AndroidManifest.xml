@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="learning_bloc"
+        android:label="flutter_mastery"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

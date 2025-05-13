@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:learning_bloc/localizatioin_app/localization%20cubit/local_cubit.dart';
+import 'package:flutter_mastery/localizatioin_app/localization%20cubit/local_cubit.dart';
 
 import '../../generated/l10n.dart';
 import '../localization cubit/local_state.dart';
-
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -34,7 +33,6 @@ class SettingsPage extends StatelessWidget {
                     ElevatedButton(
                         onPressed: () {
                           LocalCubit.get(context).changeLocal('en');
-
                         },
                         child: Text(S.of(context).english)),
                     const SizedBox(
@@ -43,7 +41,6 @@ class SettingsPage extends StatelessWidget {
                     ElevatedButton(
                         onPressed: () {
                           LocalCubit.get(context).changeLocal('ar');
-
                         },
                         child: Text(S.of(context).arabic)),
                   ],

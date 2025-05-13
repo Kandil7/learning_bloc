@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:learning_bloc/bloc_learning/examples/clean_architecture_example/clean_architecture_screen.dart';
-import 'package:learning_bloc/bloc_learning/examples/counter_example/counter_example_screen.dart';
-import 'package:learning_bloc/bloc_learning/examples/dependency_injection_example/dependency_injection_screen.dart';
-import 'package:learning_bloc/bloc_learning/examples/factory_pattern_example/screens/factory_pattern_screen.dart';
-import 'package:learning_bloc/bloc_learning/examples/form_validation_example/form_validation_screen.dart';
-import 'package:learning_bloc/bloc_learning/examples/observer_pattern_example/screens/observer_pattern_screen.dart';
-import 'package:learning_bloc/bloc_learning/examples/repository_pattern_example/repository_pattern_screen.dart';
-import 'package:learning_bloc/bloc_learning/examples/state_management_example/state_management_screen.dart';
-import 'package:learning_bloc/bloc_learning/examples/stream_example/stream_example_screen.dart';
-import 'package:learning_bloc/bloc_learning/theory/bloc_theory.dart';
-import 'package:learning_bloc/connectivty_app/widget/connectivity_screen.dart';
-import 'package:learning_bloc/post_app/screens/post_screen.dart';
-import 'package:learning_bloc/todo_app/pages/todos_page.dart';
+import 'package:flutter_mastery/bloc_learning/examples/clean_architecture_example/clean_architecture_screen.dart';
+import 'package:flutter_mastery/bloc_learning/examples/counter_example/counter_example_screen.dart';
+import 'package:flutter_mastery/bloc_learning/examples/dependency_injection_example/dependency_injection_screen.dart';
+import 'package:flutter_mastery/bloc_learning/examples/factory_pattern_example/screens/factory_pattern_screen.dart';
+import 'package:flutter_mastery/bloc_learning/examples/form_validation_example/form_validation_screen.dart';
+import 'package:flutter_mastery/bloc_learning/examples/observer_pattern_example/screens/observer_pattern_screen.dart';
+import 'package:flutter_mastery/bloc_learning/examples/repository_pattern_example/repository_pattern_screen.dart';
+import 'package:flutter_mastery/bloc_learning/examples/state_management_example/state_management_screen.dart';
+import 'package:flutter_mastery/bloc_learning/examples/stream_example/stream_example_screen.dart';
+import 'package:flutter_mastery/bloc_learning/theory/bloc_theory.dart';
+import 'package:flutter_mastery/features/5_real_world/posts_app/presentation/pages/post_screen.dart';
+import 'package:flutter_mastery/todo_app/pages/todos_page.dart';
 
 class BlocLearningDashboard extends StatelessWidget {
   const BlocLearningDashboard({Key? key}) : super(key: key);
@@ -154,16 +153,6 @@ class BlocLearningDashboard extends StatelessWidget {
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const TodosPage()),
-              ),
-            ),
-            _buildCard(
-              title: 'Connectivity App',
-              description: 'Monitor network connectivity using BLoC',
-              icon: Icons.wifi,
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const ConnectivtyScreen()),
               ),
             ),
           ],

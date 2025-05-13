@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:learning_bloc/bloc_learning/examples/counter_example/counter_bloc.dart';
+import 'package:flutter_mastery/bloc_learning/examples/counter_example/counter_bloc.dart';
 
 class CounterExampleScreen extends StatelessWidget {
   const CounterExampleScreen({Key? key}) : super(key: key);
@@ -27,7 +27,8 @@ class CounterExampleScreen extends StatelessWidget {
                 builder: (context, state) {
                   return Text(
                     '${state.count}',
-                    style: const TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                        fontSize: 48, fontWeight: FontWeight.bold),
                   );
                 },
               ),

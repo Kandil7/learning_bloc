@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:learning_bloc/Counter/Counter_app/widgets/counter_body.dart';
-import 'package:learning_bloc/Counter/Counter_app/widgets/counter_button.dart';
-import 'package:learning_bloc/generated/l10n.dart';
-import 'package:learning_bloc/theme/widget/theme_setting.dart';
+import 'package:flutter_mastery/Counter/Counter_app/widgets/counter_body.dart';
+import 'package:flutter_mastery/Counter/Counter_app/widgets/counter_button.dart';
+import 'package:flutter_mastery/generated/l10n.dart';
+import 'package:flutter_mastery/theme/widget/theme_setting.dart';
 
 import '../connectivty_app/widget/connectivity_screen.dart';
 import '../generated/l10n.dart';
@@ -27,7 +27,7 @@ class HomePage extends StatelessWidget {
           IconButton(
               onPressed: () => Navigator.of(context).push(
                   MaterialPageRoute(builder: (ctx) => const SettingsTheme())),
-              icon:  const Icon(Icons.dark_mode))
+              icon: const Icon(Icons.dark_mode))
         ],
       ),
       drawer: const Drawer(),

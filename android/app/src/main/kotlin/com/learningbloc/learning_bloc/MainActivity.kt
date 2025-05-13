@@ -1,4 +1,4 @@
-package com.learningbloc.learning_bloc
+package com.learningbloc.flutter_mastery
 
 import io.flutter.embedding.android.FlutterActivity
 

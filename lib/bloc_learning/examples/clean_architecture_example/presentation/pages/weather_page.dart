@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:learning_bloc/bloc_learning/examples/clean_architecture_example/presentation/bloc/weather_bloc.dart';
-import 'package:learning_bloc/bloc_learning/examples/clean_architecture_example/presentation/bloc/weather_event.dart';
-import 'package:learning_bloc/bloc_learning/examples/clean_architecture_example/presentation/bloc/weather_state.dart';
-import 'package:learning_bloc/bloc_learning/examples/clean_architecture_example/presentation/widgets/weather_display.dart';
+import 'package:flutter_mastery/bloc_learning/examples/clean_architecture_example/presentation/bloc/weather_bloc.dart';
+import 'package:flutter_mastery/bloc_learning/examples/clean_architecture_example/presentation/bloc/weather_event.dart';
+import 'package:flutter_mastery/bloc_learning/examples/clean_architecture_example/presentation/bloc/weather_state.dart';
+import 'package:flutter_mastery/bloc_learning/examples/clean_architecture_example/presentation/widgets/weather_display.dart';
 
 /// WeatherPage
-/// 
+///
 /// This is the main screen for the weather feature.
 /// It allows users to search for weather by city and displays the results.
 class WeatherPage extends StatefulWidget {
@@ -18,13 +18,13 @@ class WeatherPage extends StatefulWidget {
 
 class _WeatherPageState extends State<WeatherPage> {
   final _cityController = TextEditingController();
-  
+
   @override
   void dispose() {
     _cityController.dispose();
     super.dispose();
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,7 +47,7 @@ class _WeatherPageState extends State<WeatherPage> {
       ),
     );
   }
-  
+
   Widget _buildExplanation() {
     return Container(
       padding: const EdgeInsets.all(16),
@@ -69,15 +69,20 @@ class _WeatherPageState extends State<WeatherPage> {
             style: TextStyle(fontSize: 14),
           ),
           SizedBox(height: 4),
-          Text('• Domain Layer: Business entities and use cases', style: TextStyle(fontSize: 14)),
-          Text('• Data Layer: Repository implementation and data sources', style: TextStyle(fontSize: 14)),
-          Text('• Presentation Layer: BLoC, UI components', style: TextStyle(fontSize: 14)),
-          Text('• Dependency flows inward: UI → BLoC → Use Cases → Repositories', style: TextStyle(fontSize: 14)),
+          Text('• Domain Layer: Business entities and use cases',
+              style: TextStyle(fontSize: 14)),
+          Text('• Data Layer: Repository implementation and data sources',
+              style: TextStyle(fontSize: 14)),
+          Text('• Presentation Layer: BLoC, UI components',
+              style: TextStyle(fontSize: 14)),
+          Text(
+              '• Dependency flows inward: UI → BLoC → Use Cases → Repositories',
+              style: TextStyle(fontSize: 14)),
         ],
       ),
     );
   }
-  
+
   Widget _buildCityInput() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -107,7 +112,7 @@ class _WeatherPageState extends State<WeatherPage> {
       ],
     );
   }
-  
+
   Widget _buildWeatherContent() {
     return BlocBuilder<WeatherBloc, WeatherState>(
       builder: (context, state) {

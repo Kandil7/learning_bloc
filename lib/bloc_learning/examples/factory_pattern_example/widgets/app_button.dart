@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:learning_bloc/bloc_learning/examples/factory_pattern_example/models/button_model.dart';
+import 'package:flutter_mastery/bloc_learning/examples/factory_pattern_example/models/button_model.dart';
 
 /// AppButton Widget
-/// 
+///
 /// This widget renders a button based on the provided ButtonModel.
 /// It's a concrete implementation that will be created by the factory.
 class AppButton extends StatelessWidget {
   final ButtonModel model;
-  
+
   const AppButton({Key? key, required this.model}) : super(key: key);
-  
+
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(

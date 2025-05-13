@@ -1,8 +1,8 @@
-import 'package:learning_bloc/bloc_learning/examples/clean_architecture_example/domain/entities/weather.dart';
-import 'package:learning_bloc/bloc_learning/examples/clean_architecture_example/domain/repositories/weather_repository.dart';
+import 'package:flutter_mastery/bloc_learning/examples/clean_architecture_example/domain/entities/weather.dart';
+import 'package:flutter_mastery/bloc_learning/examples/clean_architecture_example/domain/repositories/weather_repository.dart';
 
 /// GetWeather Use Case
-/// 
+///
 /// This class implements a specific use case: getting weather for a city.
 /// It depends on the repository interface, not the implementation.
 class GetWeather {
@@ -11,7 +11,7 @@ class GetWeather {
   GetWeather(this.repository);
 
   /// Execute the use case
-  /// 
+  ///
   /// This method encapsulates the business logic for getting weather.
   /// It delegates the data fetching to the repository.
   Future<Weather> execute(String cityName) async {

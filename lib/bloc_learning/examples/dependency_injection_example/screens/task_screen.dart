@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:learning_bloc/bloc_learning/examples/dependency_injection_example/blocs/task_bloc.dart';
-import 'package:learning_bloc/bloc_learning/examples/dependency_injection_example/di/service_locator.dart';
-import 'package:learning_bloc/bloc_learning/examples/dependency_injection_example/repositories/task_repository.dart';
+import 'package:flutter_mastery/bloc_learning/examples/dependency_injection_example/blocs/task_bloc.dart';
+import 'package:flutter_mastery/bloc_learning/examples/dependency_injection_example/di/service_locator.dart';
+import 'package:flutter_mastery/bloc_learning/examples/dependency_injection_example/repositories/task_repository.dart';
 
 class TaskScreen extends StatefulWidget {
   const TaskScreen({Key? key}) : super(key: key);
@@ -13,13 +13,13 @@ class TaskScreen extends StatefulWidget {
 
 class _TaskScreenState extends State<TaskScreen> {
   final _taskController = TextEditingController();
-  
+
   @override
   void dispose() {
     _taskController.dispose();
     super.dispose();
   }
-  
+
   @override
   Widget build(BuildContext context) {
     // Create a TaskBloc using the service locator
@@ -47,7 +47,7 @@ class _TaskScreenState extends State<TaskScreen> {
       ),
     );
   }
-  
+
   Widget _buildExplanation() {
     return Container(
       padding: const EdgeInsets.all(16),
@@ -69,15 +69,21 @@ class _TaskScreenState extends State<TaskScreen> {
             style: TextStyle(fontSize: 14),
           ),
           SizedBox(height: 4),
-          Text('• Dependencies are registered in a central service locator', style: TextStyle(fontSize: 14)),
-          Text('• Components request dependencies instead of creating them', style: TextStyle(fontSize: 14)),
-          Text('• TaskBloc depends on TaskService which depends on TaskRepository', style: TextStyle(fontSize: 14)),
-          Text('• Each layer is decoupled from the implementation details of its dependencies', style: TextStyle(fontSize: 14)),
+          Text('• Dependencies are registered in a central service locator',
+              style: TextStyle(fontSize: 14)),
+          Text('• Components request dependencies instead of creating them',
+              style: TextStyle(fontSize: 14)),
+          Text(
+              '• TaskBloc depends on TaskService which depends on TaskRepository',
+              style: TextStyle(fontSize: 14)),
+          Text(
+              '• Each layer is decoupled from the implementation details of its dependencies',
+              style: TextStyle(fontSize: 14)),
         ],
       ),
     );
   }
-  
+
   Widget _buildTaskInput() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -113,7 +119,7 @@ class _TaskScreenState extends State<TaskScreen> {
       ],
     );
   }
-  
+
   Widget _buildTaskList() {
     return BlocBuilder<TaskBloc, TaskState>(
       builder: (context, state) {
@@ -127,7 +133,7 @@ class _TaskScreenState extends State<TaskScreen> {
               child: Text('No tasks yet. Add some tasks using the form above.'),
             );
           }
-          
+
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -154,12 +160,12 @@ class _TaskScreenState extends State<TaskScreen> {
             ),
           );
         }
-        
+
         return const SizedBox.shrink();
       },
     );
   }
-  
+
   Widget _buildTaskItem(BuildContext context, Task task) {
     return Card(
       margin: const EdgeInsets.only(bottom: 8),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:learning_bloc/bloc_learning/examples/observer_pattern_example/observers/weather_observers.dart';
-import 'package:learning_bloc/bloc_learning/examples/observer_pattern_example/subjects/weather_station.dart';
+import 'package:flutter_mastery/bloc_learning/examples/observer_pattern_example/observers/weather_observers.dart';
+import 'package:flutter_mastery/bloc_learning/examples/observer_pattern_example/subjects/weather_station.dart';
 
 /// ObserverPatternScreen
-/// 
+///
 /// This screen demonstrates the Observer Pattern by showing a weather station
 /// and multiple observers that display different aspects of the weather data.
 class ObserverPatternScreen extends StatefulWidget {
@@ -16,35 +16,36 @@ class ObserverPatternScreen extends StatefulWidget {
 class _ObserverPatternScreenState extends State<ObserverPatternScreen> {
   // Create the subject (weather station)
   final _weatherStation = WeatherStation();
-  
+
   // Create the observers
   late final CurrentConditionsDisplay _currentConditionsDisplay;
   late final StatisticsDisplay _statisticsDisplay;
   late final ForecastDisplay _forecastDisplay;
-  
+
   // Track which observers are active
   bool _showCurrentConditions = true;
   bool _showStatistics = true;
   bool _showForecast = true;
-  
+
   @override
   void initState() {
     super.initState();
-    
+
     // Initialize observers with callbacks to update the UI
-    _currentConditionsDisplay = CurrentConditionsDisplay((_) => setState(() {}));
+    _currentConditionsDisplay =
+        CurrentConditionsDisplay((_) => setState(() {}));
     _statisticsDisplay = StatisticsDisplay(() => setState(() {}));
     _forecastDisplay = ForecastDisplay(() => setState(() {}));
-    
+
     // Attach observers to the subject
     _weatherStation.attach(_currentConditionsDisplay);
     _weatherStation.attach(_statisticsDisplay);
     _weatherStation.attach(_forecastDisplay);
-    
+
     // Initial measurement
     _weatherStation.measureWeather();
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,7 +76,7 @@ class _ObserverPatternScreenState extends State<ObserverPatternScreen> {
       ),
     );
   }
-  
+
   Widget _buildExplanation() {
     return Container(
       padding: const EdgeInsets.all(16),
@@ -97,17 +98,25 @@ class _ObserverPatternScreenState extends State<ObserverPatternScreen> {
             style: TextStyle(fontSize: 14),
           ),
           SizedBox(height: 4),
-          Text('• WeatherStation is the subject that maintains weather data', style: TextStyle(fontSize: 14)),
-          Text('• Multiple observers display different aspects of the data', style: TextStyle(fontSize: 14)),
-          Text('• Observers can be attached/detached at runtime', style: TextStyle(fontSize: 14)),
-          Text('• When the subject changes, all observers are automatically updated', style: TextStyle(fontSize: 14)),
-          Text('• Press the button below to toggle observers on/off', style: TextStyle(fontSize: 14)),
-          Text('• Press the floating button to simulate a new weather measurement', style: TextStyle(fontSize: 14)),
+          Text('• WeatherStation is the subject that maintains weather data',
+              style: TextStyle(fontSize: 14)),
+          Text('• Multiple observers display different aspects of the data',
+              style: TextStyle(fontSize: 14)),
+          Text('• Observers can be attached/detached at runtime',
+              style: TextStyle(fontSize: 14)),
+          Text(
+              '• When the subject changes, all observers are automatically updated',
+              style: TextStyle(fontSize: 14)),
+          Text('• Press the button below to toggle observers on/off',
+              style: TextStyle(fontSize: 14)),
+          Text(
+              '• Press the floating button to simulate a new weather measurement',
+              style: TextStyle(fontSize: 14)),
         ],
       ),
     );
   }
-  
+
   Widget _buildObserverToggles() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -162,7 +171,7 @@ class _ObserverPatternScreenState extends State<ObserverPatternScreen> {
       ],
     );
   }
-  
+
   Widget _buildObserverDisplays() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

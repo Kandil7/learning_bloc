@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:learning_bloc/bloc_learning/examples/clean_architecture_example/domain/entities/weather.dart';
+import 'package:flutter_mastery/bloc_learning/examples/clean_architecture_example/domain/entities/weather.dart';
 
 /// WeatherDisplay Widget
-/// 
+///
 /// This widget displays weather information in a visually appealing way.
 class WeatherDisplay extends StatelessWidget {
   final Weather weather;
-  
+
   const WeatherDisplay({Key? key, required this.weather}) : super(key: key);
-  
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -63,11 +63,11 @@ class WeatherDisplay extends StatelessWidget {
       ),
     );
   }
-  
+
   Widget _buildWeatherIcon() {
     IconData iconData;
     Color iconColor;
-    
+
     // Determine icon based on weather condition
     switch (weather.condition.toLowerCase()) {
       case 'sunny':
@@ -94,14 +94,14 @@ class WeatherDisplay extends StatelessWidget {
         iconData = Icons.wb_sunny;
         iconColor = Colors.orange;
     }
-    
+
     return Icon(
       iconData,
       size: 80,
       color: iconColor,
     );
   }
-  
+
   Widget _buildWeatherDetail(IconData icon, String value, String label) {
     return Column(
       children: [

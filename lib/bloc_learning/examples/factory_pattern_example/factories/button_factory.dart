@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:learning_bloc/bloc_learning/examples/factory_pattern_example/models/button_model.dart';
-import 'package:learning_bloc/bloc_learning/examples/factory_pattern_example/widgets/app_button.dart';
+import 'package:flutter_mastery/bloc_learning/examples/factory_pattern_example/models/button_model.dart';
+import 'package:flutter_mastery/bloc_learning/examples/factory_pattern_example/widgets/app_button.dart';
 
 /// ButtonFactory
-/// 
+///
 /// This class is responsible for creating buttons based on their type.
 /// It encapsulates the button creation logic in one place.
 class ButtonFactory {
@@ -22,7 +22,7 @@ class ButtonFactory {
       ),
     );
   }
-  
+
   /// Create a secondary button
   static AppButton createSecondaryButton({
     required String text,
@@ -38,7 +38,7 @@ class ButtonFactory {
       ),
     );
   }
-  
+
   /// Create a danger button
   static AppButton createDangerButton({
     required String text,
@@ -54,7 +54,7 @@ class ButtonFactory {
       ),
     );
   }
-  
+
   /// Create a success button
   static AppButton createSuccessButton({
     required String text,
@@ -70,7 +70,7 @@ class ButtonFactory {
       ),
     );
   }
-  
+
   /// Create a button based on its type
   static AppButton createButton({
     required String text,

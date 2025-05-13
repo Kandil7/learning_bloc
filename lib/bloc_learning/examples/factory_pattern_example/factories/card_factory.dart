@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:learning_bloc/bloc_learning/examples/factory_pattern_example/models/card_model.dart';
-import 'package:learning_bloc/bloc_learning/examples/factory_pattern_example/widgets/app_card.dart';
+import 'package:flutter_mastery/bloc_learning/examples/factory_pattern_example/models/card_model.dart';
+import 'package:flutter_mastery/bloc_learning/examples/factory_pattern_example/widgets/app_card.dart';
 
 /// CardFactory
-/// 
+///
 /// This class is responsible for creating cards based on their type.
 /// It encapsulates the card creation logic in one place.
 class CardFactory {
@@ -24,7 +24,7 @@ class CardFactory {
       ),
     );
   }
-  
+
   /// Create a warning card
   static AppCard createWarningCard({
     required String title,
@@ -42,7 +42,7 @@ class CardFactory {
       ),
     );
   }
-  
+
   /// Create an error card
   static AppCard createErrorCard({
     required String title,
@@ -60,7 +60,7 @@ class CardFactory {
       ),
     );
   }
-  
+
   /// Create a success card
   static AppCard createSuccessCard({
     required String title,
@@ -78,7 +78,7 @@ class CardFactory {
       ),
     );
   }
-  
+
   /// Create a card based on its type
   static AppCard createCard({
     required String title,

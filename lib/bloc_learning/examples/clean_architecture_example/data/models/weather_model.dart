@@ -1,7 +1,7 @@
-import 'package:learning_bloc/bloc_learning/examples/clean_architecture_example/domain/entities/weather.dart';
+import 'package:flutter_mastery/bloc_learning/examples/clean_architecture_example/domain/entities/weather.dart';
 
 /// WeatherModel
-/// 
+///
 /// This class extends the domain entity and adds data layer functionality.
 /// It handles serialization/deserialization of weather data.
 class WeatherModel extends Weather {

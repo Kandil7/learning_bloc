@@ -1,29 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:learning_bloc/bloc_learning/examples/observer_pattern_example/observers/observer.dart';
-import 'package:learning_bloc/bloc_learning/examples/observer_pattern_example/subjects/weather_station.dart';
+import 'package:flutter_mastery/bloc_learning/examples/observer_pattern_example/observers/observer.dart';
+import 'package:flutter_mastery/bloc_learning/examples/observer_pattern_example/subjects/weather_station.dart';
 
 /// CurrentConditionsDisplay
-/// 
+///
 /// This observer displays the current weather conditions.
 class CurrentConditionsDisplay implements Observer<WeatherData> {
   WeatherData? _weatherData;
   final Function(WeatherData) _onUpdate;
-  
+
   CurrentConditionsDisplay(this._onUpdate);
-  
+
   @override
   void update(WeatherData data) {
     _weatherData = data;
     _onUpdate(data);
   }
-  
+
   Widget build() {
     if (_weatherData == null) {
       return const Center(
         child: Text('No data available'),
       );
     }
-    
+
     return Card(
       elevation: 4,
       child: Padding(
@@ -79,7 +79,7 @@ class CurrentConditionsDisplay implements Observer<WeatherData> {
 }
 
 /// StatisticsDisplay
-/// 
+///
 /// This observer displays statistics about the weather data.
 class StatisticsDisplay implements Observer<WeatherData> {
   double _minTemp = double.infinity;
@@ -87,27 +87,27 @@ class StatisticsDisplay implements Observer<WeatherData> {
   double _tempSum = 0;
   int _numReadings = 0;
   final Function() _onUpdate;
-  
+
   StatisticsDisplay(this._onUpdate);
-  
+
   @override
   void update(WeatherData data) {
     _tempSum += data.temperature;
     _numReadings++;
-    
+
     _minTemp = _minTemp > data.temperature ? data.temperature : _minTemp;
     _maxTemp = _maxTemp < data.temperature ? data.temperature : _maxTemp;
-    
+
     _onUpdate();
   }
-  
+
   Widget build() {
     if (_numReadings == 0) {
       return const Center(
         child: Text('No data available'),
       );
     }
-    
+
     return Card(
       elevation: 4,
       child: Padding(
@@ -174,30 +174,30 @@ class StatisticsDisplay implements Observer<WeatherData> {
 }
 
 /// ForecastDisplay
-/// 
+///
 /// This observer displays a simple forecast based on the current weather data.
 class ForecastDisplay implements Observer<WeatherData> {
   WeatherData? _weatherData;
   final Function() _onUpdate;
-  
+
   ForecastDisplay(this._onUpdate);
-  
+
   @override
   void update(WeatherData data) {
     _weatherData = data;
     _onUpdate();
   }
-  
+
   Widget build() {
     if (_weatherData == null) {
       return const Center(
         child: Text('No data available'),
       );
     }
-    
+
     String forecast;
     IconData forecastIcon;
-    
+
     if (_weatherData!.temperature > 30) {
       forecast = 'Hot and sunny day ahead!';
       forecastIcon = Icons.wb_sunny;
@@ -211,7 +211,7 @@ class ForecastDisplay implements Observer<WeatherData> {
       forecast = 'Cold weather, bundle up!';
       forecastIcon = Icons.ac_unit;
     }
-    
+
     return Card(
       elevation: 4,
       child: Padding(
