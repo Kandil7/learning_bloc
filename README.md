@@ -63,7 +63,7 @@ The project is organized into a progressive learning path:
 3. Navigate to the learning dashboard to explore different concepts
 
 ```bash
-git clone https://github.com/yourusername/flutter_mastery.git
+git clone https://github.com/Kandil7/flutter_mastery.git
 cd flutter_mastery
 flutter pub get
 flutter run
